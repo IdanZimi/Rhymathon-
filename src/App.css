@@ -1,32 +1,77 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
+body {
+  background-color: #ecf0f1
+}
+#my{
+  font-family: 'Allerta Stencil', sans-serif;
+  font-weight: 700  ; 
+  font-size: 100px; 
+  text-align: center; 
+  margin-top: 100px; 
+  color: grey;
+  
+}
+.button {
+  /* display: inline-block; */
+  border-radius: 15px;
+  background-color: grey;
+  border: none;
+  color: #FFFFFF;
   text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 300px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0 auto ;
+  margin-top: 150px;  
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  text-align: center ;
+  color: white; 
+}
+a{
+  color:white; 
+}
+a:link {
+  text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+a:visited {
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+a:hover {
+  text-decoration: none;
+  color: white ; 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a:active {
+  text-decoration: none;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.enterSpan{
+  color: white; 
 }

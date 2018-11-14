@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-
-class WordSearch extends Component {
+import Poem from './Poem'
+class mainPage extends Component {
 
   constructor() {
     super()
@@ -23,6 +23,7 @@ class WordSearch extends Component {
     let rhyme3 = rhymes[2].word
     let rhyme4 = rhymes[3].word
     this.props.setRhymes(rhyme1,rhyme2, rhyme3, rhyme4)
+    
   }
 
   render() {
@@ -30,9 +31,11 @@ class WordSearch extends Component {
       <div className="word-search">
         <input type="text" value={this.state.word} onChange={this.updateWord} />
         <button type="button" onClick={this.getRhymes}>Go</button>
+
+        <Poem />
       </div>
     );
   }
 }
 
-export default WordSearch;
+export default mainPage;

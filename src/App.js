@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router  , Link} from 'react-router-dom'
+import { BrowserRouter as Router , Route  , Link} from 'react-router-dom'
 import './App.css'
+import Landing from './components/Landing'
+import mainPage from './components/mainPage';
 class App extends Component {
 
   render() {
     return (
       <Router>
         <div className="App">
-          <div>
-            <h1 id="my">My Rhymathon</h1>
-            <button type="button" class="btn btn-secondary btn-lg btn-block button"><span className="enterSpan"><Link to="/mainPage">Enter</Link></span></button>
-          </div>
-
           <div className="main-routes">
-            {/* <Route path="/mainPage" exact component={mainPage} /> */}
-
+            <Route path="/" exact component={Landing} />
+            <Route path="/mainPage" exact component={mainPage}/>
           </div>
         </div>
       </Router>

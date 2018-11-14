@@ -3,8 +3,8 @@ const app = express()
 const bodyParser = require("body-parser")
 const mongoose = require ("mongoose")
 
-mongoose.connect("mongodb://localhost/rhymeDB", function(){
-    console.log("Connected")
+mongoose.connect("mongodb://rhymathon:Aa123456@ds131983.mlab.com:31983/rhymathon", function(){
+    console.log("DB Connection established!!")
 })
 
 app.use(bodyParser.json())

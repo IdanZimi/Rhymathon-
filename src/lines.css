@@ -1,0 +1,12 @@
+.lines{
+    margin-top: 100px; 
+    display: inline-block;
+}
+.line{
+    border : none;
+    margin-left: 600px;  
+    border-radius: 5px; 
+    background-color: #808080; 
+    color: white  ;
+    font-weight: 700 ; 
+}

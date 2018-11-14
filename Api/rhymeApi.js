@@ -3,7 +3,7 @@ let Rhyme = require('../Models/Rhyme');
 const router = express.Router();
 
 router.get('/', function (req, res) {
-//   Client.find().exec((err, user) => {
+//   Rhyme.find().exec((err, user) => {
 //     if (err) {
 //       res.status(500).send(err);
 //     }

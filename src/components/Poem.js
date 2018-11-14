@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import '../poem.css'
+import '../lines.css'
 
 
 class Poem extends Component {
@@ -20,23 +20,23 @@ class Poem extends Component {
 
     render() {
         return (
-            <div className="poem">
-                <span>
-                    <input type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
+            <div className="lines">
+                <div>
+                    <input className="line" type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
                     {this.props.rhyme1}
-                </span><br></br>
-                <span>
-                    <input type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
+                </div><br/>
+                <div>
+                    <input className="line" type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
                     {this.props.rhyme2}
-                </span>
-                <span>
-                    <input type="text" value={this.state.line3} name="line3" onChange={this.updateText} />
+                </div><br/>
+                <div>
+                    <input className="line" type="text" value={this.state.line3} name="line3" onChange={this.updateText} />
                     {this.props.rhyme3}
-                </span>
-                <span>
-                    <input type="text" value={this.state.line4} name="line4" onChange={this.updateText} />
+                </div><br/>
+                <div>
+                    <input className="line" type="text" value={this.state.line4} name="line4" onChange={this.updateText} />
                     {this.props.rhyme4}
-                </span>
+                </div>
                 {/* <button type="button" onClick={}>Post</button> */}
 
             </div>

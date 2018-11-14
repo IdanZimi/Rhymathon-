@@ -1,15 +1,19 @@
 .lines{
     margin-top: 100px; 
-    display: inline-block;
+    display: block
 }
-.line{
+.input{
     border : none;
     margin-left: 400px;  
     border-radius: 5px; 
-    background-color: #808080; 
+    background-color: #b6b5b5; 
     color: white  ;
     font-weight: 200 ; 
     font-family: 'Allerta Stencil', sans-serif;
     width: 400px; 
 
+}
+.poemline{
+    text-align: center;
+    margin:0 auto
 }

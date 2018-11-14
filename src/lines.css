@@ -1,6 +1,6 @@
 .lines{
     margin-top: 100px; 
-    display: block
+    
 }
 .input{
     border : none;
@@ -14,6 +14,6 @@
 
 }
 .poemline{
-    text-align: center;
-    margin:0 auto
+    margin : 0 auto ; 
+    
 }

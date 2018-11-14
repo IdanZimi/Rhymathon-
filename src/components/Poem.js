@@ -13,29 +13,30 @@ class Poem extends Component {
             line4: ""
         }
     }
-    
+
     updateText = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
+
 
     render() {
         return (
             <div className="lines">
                 <div className="poemline">
                     <input className="input" type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
-                    {this.props.rhymes[0]}
-                </div><br/>
+                    {this.props.rhymes[this.props.randNum1]}
+                </div><br />
                 <div className="poemline">
                     <input className="input" type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
-                    {this.props.rhymes[1]}
-                </div><br/>
+                    {this.props.rhymes[this.props.randNum2]}
+                </div><br />
                 <div className="poemline">
                     <input className="input" type="text" value={this.state.line3} name="line3" onChange={this.updateText} />
-                    {this.props.rhymes[2]}
-                </div><br/>
+                    {this.props.rhymes[this.props.randNum3]}
+                </div><br />
                 <div className="poemline">
                     <input className="input" type="text" value={this.state.line4} name="line4" onChange={this.updateText} />
-                    {this.props.rhymes[3]}
+                    {this.props.rhymes[this.props.randNum4]}
                 </div>
                 {/* <button type="button" onClick={}>Post</button> */}
 

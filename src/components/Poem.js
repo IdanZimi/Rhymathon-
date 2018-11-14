@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import '../poem.css'
 
 
 class Poem extends Component {
@@ -23,7 +24,7 @@ class Poem extends Component {
                 <span>
                     <input type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
                     {this.props.rhyme1}
-                </span>
+                </span><br></br>
                 <span>
                     <input type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
                     {this.props.rhyme2}

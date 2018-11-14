@@ -21,21 +21,21 @@ class Poem extends Component {
     render() {
         return (
             <div className="lines">
-                <div>
-                    <input className="line" type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
-                    {this.props.rhyme1}
+                <div className="poemline">
+                    <input className="input" type="text" value={this.state.line1} name="line1" onChange={this.updateText} />
+                    {this.props.rhymes[0]}
                 </div><br/>
-                <div>
-                    <input className="line" type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
-                    {this.props.rhyme2}
+                <div className="poemline">
+                    <input className="input" type="text" value={this.state.line2} name="line2" onChange={this.updateText} />
+                    {this.props.rhymes[1]}
                 </div><br/>
-                <div>
-                    <input className="line" type="text" value={this.state.line3} name="line3" onChange={this.updateText} />
-                    {this.props.rhyme3}
+                <div className="poemline">
+                    <input className="input" type="text" value={this.state.line3} name="line3" onChange={this.updateText} />
+                    {this.props.rhymes[2]}
                 </div><br/>
-                <div>
-                    <input className="line" type="text" value={this.state.line4} name="line4" onChange={this.updateText} />
-                    {this.props.rhyme4}
+                <div className="poemline">
+                    <input className="input" type="text" value={this.state.line4} name="line4" onChange={this.updateText} />
+                    {this.props.rhymes[3]}
                 </div>
                 {/* <button type="button" onClick={}>Post</button> */}
 

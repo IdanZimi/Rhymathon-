@@ -7,7 +7,8 @@ class mainPage extends Component {
   constructor() {
     super()
     this.state = {
-      word: ''
+      word: '',
+      rhymes:[]
     }
   }
 
@@ -16,15 +17,22 @@ class mainPage extends Component {
   }
 
   getRhymes = async () => {
-    let rhymes = await axios.get('https://api.datamuse.com/words?rel_rhy=' + this.state.word)
+    let result = await axios.get('https://api.datamuse.com/words?rel_rhy=' + this.state.word)
     //random rhymes
+    let rhymes = result.data
     console.log(rhymes)
-    let rhyme1 = rhymes[0].word
-    let rhyme2 = rhymes[1].word
-    let rhyme3 = rhymes[2].word
-    let rhyme4 = rhymes[3].word
-    this.props.setRhymes(rhyme1, rhyme2, rhyme3, rhyme4)
-
+    let rhymeArr = []
+    let i = 0
+    while(i<4){
+        rhymeArr.push(rhymes[i].word)
+        console.log(rhymes[i])
+        i++
+    }
+  //   let rhyme1 = rhymes[0].word
+  //   let rhyme2 = rhymes[1].word
+  //   let rhyme3 = rhymes[2].word
+  //   let rhyme4 = rhymes[3].word
+  this.setState({rhymes:rhymeArr})
   }
 
   render() {
@@ -34,7 +42,7 @@ class mainPage extends Component {
           <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
           <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
         </div>
-        <Poem />
+        <Poem rhymes={this.state.rhymes}/>
       </div>
     );
   }

@@ -52,7 +52,7 @@
 .word-search{
       margin:0 auto;
       text-align: center;
-      margin-top:12%;
+      margin-top:5%;
 }
 .wordInput{
       margin : 0 auto ;
@@ -61,3 +61,10 @@
       font-family: 'Allerta Stencil', sans-serif;
 
   }
+  .mainPageHeader{
+    font-size: 50px;  
+    margin-top: 50px; 
+    font-family: 'Chewy', cursive;
+    color:#aaaeaf;
+    text-align: center ;
+}

@@ -57,7 +57,7 @@ class mainPage extends Component {
       }
     }
     this.setState({ lines: lines })
-    addPoem()
+    this.addPoem()
   }
 
   render() {
@@ -78,7 +78,7 @@ class mainPage extends Component {
             <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
             <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
           </div>
-          <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines} />
+          <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines} removePoem={this.state.removePoem} />
         </div>
       )
     }

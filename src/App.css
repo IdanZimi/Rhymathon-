@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
 body {
-  background-color: #ecf0f1
+  background-repeat: no-repeat ; 
+  background-size: cover ;
+  
 }
+
 #my{
   font-family: 'Allerta Stencil', sans-serif;
   font-weight: 700  ; 
   font-size: 100px; 
-  text-align: center; 
+  text-align: center;   
   margin-top: 100px; 
   color: grey;
   

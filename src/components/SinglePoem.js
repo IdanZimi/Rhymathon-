@@ -22,7 +22,8 @@ class SinglePoem extends Component {
                     {this.props.poem.map(p => {
                         return (
                             <div className="poemContainer">
-                                <p>{p.wordSearched} / {p.userName}</p>
+                                <p>Chosen Word:{" "}{p.wordSearched}</p>
+                                <p>{p.title} / {p.userName}</p>
                                 <div>  
                                     {p.lyrics.map(b => {
                                         return <div>{b.text + " " + b.rhyme}</div>

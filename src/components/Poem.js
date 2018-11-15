@@ -20,9 +20,9 @@ class Poem extends Component {
             title: this.state.title,
             lines: this.props.lines
 
-        }).then(res => {
+        }).then((res) => {
             console.log(res.data);
-            // console.log("hey")
+            this.props.removePoem()
         })
     }
 

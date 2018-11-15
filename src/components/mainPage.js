@@ -28,12 +28,12 @@ class mainPage extends Component {
     this.setState({ word: e.target.value })
   }
 
-  removePoem(){
-    this.setState({saved:true})
+  removePoem = () => {
+    this.setState({ saved: true, lines: [] })
   }
 
-  addPoem(){
-    this.setState({saved:false})
+  addPoem = () => {
+    this.setState({ saved: false })
   }
 
   getRhymes = async () => {
@@ -43,10 +43,10 @@ class mainPage extends Component {
     console.log(rhymes)
     const lines = []
     let i = 0
-    if(this.state.word === ''){
+    if (this.state.word === '') {
       return alert("Please fill in a word.")
     }
-    else if(rhymes[0]===undefined){
+    else if (rhymes[0] === undefined) {
       return alert('This word does not rhyme with any currently known word.')
     }
     while (i < 4) {
@@ -62,14 +62,14 @@ class mainPage extends Component {
 
   render() {
 
-    if (this.state.lines[0] === undefined || this.state.saved===true) {
+    if (this.state.lines[0] === undefined || this.state.saved === true) {
       return (
-      <div className="mainPage backMainPage">
-        <div className="word-search">
-          <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
-          <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
-        </div>
-      </div>)
+        <div className="mainPage backMainPage">
+          <div className="word-search">
+            <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
+            <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
+          </div>
+        </div>)
     }
     else {
       return (
@@ -78,7 +78,13 @@ class mainPage extends Component {
             <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
             <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
           </div>
-          <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines} removePoem={this.state.removePoem} />
+          <Poem
+            word={this.state.word}
+            lines={this.state.lines}
+            updateLines={this.updateLines}
+            removePoem={this.removePoem}
+            saved={this.state.saved}
+          />
         </div>
       )
     }

@@ -19,10 +19,12 @@ class SinglePoem extends Component {
         return (
             <div>
                 <div>
-                    {this.props.poem.map(p => {
+                    {this.props.poem
+                    .filter((poem) => poem.wordSearched.includes(this.props.search))
+                    .map(p => {
                         return (
                             <div className="poemContainer">
-                                <p>{p.wordSearched} / {p.userName}</p>
+                                <p>{p.title} / {p.userName}</p>
                                 <div>  
                                     {p.lyrics.map(b => {
                                         if(b.id === p.lyrics[p.lyrics.length-1].id){

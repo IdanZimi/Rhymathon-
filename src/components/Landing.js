@@ -9,7 +9,7 @@ class Landing extends Component {
         <div>
           <h1 id="my">My Rhymathon</h1>
           <Link to="/n/mainPage">
-            <button type="button" className="btn btn-secondary btn-lg btn-block button">
+            <button type="button" className="btn bttn btn-secondary btn-lg btn-block button">
               <span className="enterSpan">Enter</span>
             </button>
           </Link>

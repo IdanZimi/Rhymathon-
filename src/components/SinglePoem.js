@@ -25,7 +25,12 @@ class SinglePoem extends Component {
                                 <p>{p.wordSearched} / {p.userName}</p>
                                 <div>  
                                     {p.lyrics.map(b => {
-                                        return <div>{b.text + " " + b.rhyme}</div>
+                                        if(b.id === p.lyrics[p.lyrics.length-1].id){
+                                            return <div>{b.text + " " + b.rhyme + "."}</div>
+                                        }
+                                        else{
+                                        return <div>{b.text + " " + b.rhyme + ","}</div>
+                                    }
                                     })}
                                 </div>
                             </div>

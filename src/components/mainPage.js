@@ -34,6 +34,9 @@ class mainPage extends Component {
     console.log(rhymes)
     const lines = []
     let i = 0
+    if(rhymes[0]===undefined){
+      return alert('This word does not rhyme with any currently known word.')
+    }
     while (i < 4) {
       let splitArr = rhymes[Math.floor((Math.random() * rhymes.length))].word.split(' ')
       if (!splitArr[1]) {
@@ -47,7 +50,8 @@ class mainPage extends Component {
   render() {
 
     if (this.state.lines[0] === undefined) {
-      return (<div className="mainPage">
+      return (
+      <div className="mainPage">
         <div className="word-search">
           <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
           <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>

@@ -18,13 +18,25 @@
 
 }
 .poemline{
-    margin : 0 auto ; 
+    margin : 5px ; 
     text-align: center
     
+}
+.titleLine{
+    margin-left:22%
 }
 .author{
     margin-left: 5px
 }
+.saveButtonDiv{
+    text-align: center
+}
 .buttonSave{
-    
+    border-radius: 5px
+}
+.rhyme{
+    display:inline-block;
+    width:6%;
+    text-align:left;
+    padding-left:2px;
 }

@@ -17,7 +17,7 @@ class Line extends Component {
 
             <div className="poemline">
                 <input className="input otherInput" type="text" value={this.props.line.text} name="line2" onChange={this.updateText} />
-                {this.props.line.rhyme}
+                <div className="rhyme">{this.props.line.rhyme}</div>
             </div>
         );
     }

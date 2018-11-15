@@ -14,14 +14,14 @@ class mainPage extends Component {
 
   updateLines = (id, value) => {
     let lines = this.state.lines.map((line) => {
-        if (line.id === id) {
-            return {...line ,text:value}
-        }
-        return line;
+      if (line.id === id) {
+        return { ...line, text: value }
+      }
+      return line;
     })
 
     this.setState({ lines: lines })
-}
+  }
 
   updateWord = (e) => {
     this.setState({ word: e.target.value })
@@ -37,24 +37,34 @@ class mainPage extends Component {
     while (i < 4) {
       let splitArr = rhymes[Math.floor((Math.random() * rhymes.length))].word.split(' ')
       if (!splitArr[1]) {
-       let line = {text: "", rhyme: splitArr[0], id:  ++i}
+        let line = { text: "", rhyme: splitArr[0], id: ++i }
         lines.push(line);
       }
     }
-        this.setState({ lines: lines })
-    } 
+    this.setState({ lines: lines })
+  }
 
   render() {
 
-    return (
-      <div className="mainPage">
+    if (this.state.lines[0] === undefined) {
+      return (<div className="mainPage">
         <div className="word-search">
           <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
           <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
         </div>
-        <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines}/>
-      </div>
-    )
+      </div>)
+    }
+    else {
+      return (
+        <div className="mainPage">
+          <div className="word-search">
+            <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
+            <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
+          </div>
+          <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines} />
+        </div>
+      )
+    }
   }
 
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import '../mainPage.css'
 import '../lines.css'
 import Line from './line'
 
@@ -12,7 +13,7 @@ class Poem extends Component {
             userName: ""
         }
     }
-    
+
     SaveToData = () => {
         axios.post('http://localhost:4000/rhymeData ', {
             word: this.props.word,
@@ -30,26 +31,30 @@ class Poem extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    updateLines=(id,value)=>{
-        this.props.updateLines(id,value)
+    updateLines = (id, value) => {
+        this.props.updateLines(id, value)
     }
 
-    
+
     render() {
         return (
             <div className="lines">
-                <div className="poemline">
+                <div className="titleLine">
                     Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
                     <span className="author">
                         Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
                     </span>
+                    </div>
+                    <div className="poemline">
                     {this.props.lines.map((line) => {
                         return <Line key={line.id} line={line} updateLines={this.updateLines} />
                     })}
 
-                </div><br />
+                </div>
 
-                <button className="buttonSave" onClick={this.SaveToData} type="button">Save</button>
+                <div className="saveButtonDiv">
+                    <button className="buttonSave button" onClick={this.SaveToData} type="button"><span>Save</span></button>
+                </div>
 
             </div >
         );

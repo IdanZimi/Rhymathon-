@@ -5,7 +5,7 @@ class Landing extends Component {
 
   render() {
     return (
-      <div>
+      <div className="back">
         <div>
           <h1 id="my">My Rhymathon</h1>
           <Link to="/n/mainPage">

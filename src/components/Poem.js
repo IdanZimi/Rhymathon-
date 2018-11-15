@@ -37,20 +37,21 @@ class Poem extends Component {
 
     render() {
         return (
-            <div className="lines">
-                <div className="titleLine">
-                    Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
-                    <span className="author">
-                        Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
-                    </span>
+            <div>
+                <div className="lines">
+                    <div className="titleLine">
+                        Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
+                        <span className="author">
+                            Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
+                        </span>
                     </div>
                     <div className="poemline">
-                    {this.props.lines.map((line) => {
-                        return <Line key={line.id} line={line} updateLines={this.updateLines} />
-                    })}
+                        {this.props.lines.map((line) => {
+                            return <Line key={line.id} line={line} updateLines={this.updateLines} />
+                        })}
 
+                    </div>
                 </div>
-
                 <div className="saveButtonDiv">
                     <button className="buttonSave button" onClick={this.SaveToData} type="button"><span>Save</span></button>
                 </div>

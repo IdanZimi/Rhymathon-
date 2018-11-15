@@ -5,7 +5,10 @@
     background-image: url("./images/background-cinza-para-site.jpg");
     background-size: cover; 
   }
-  .searchInput{
-      margin:2%;
+
+.searchInput{
+    margin-left: 2% ; 
+    margin-top : 2% ;         
+}
       
-  }
+  

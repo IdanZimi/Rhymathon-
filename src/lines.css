@@ -1,12 +1,13 @@
 .lines{
     margin-top: 100px; 
+    margin-left: 5%; 
     
 }
 .titleAuthorInout{
-    width:20%
+    width:19%
 }
 .otherInput{
-    width: 50%; 
+    width: 35%; 
 }
 .input{
     border : none;
@@ -23,7 +24,7 @@
     
 }
 .titleLine{
-    margin-left:22%
+    margin-left:30%
 }
 .author{
     margin-left: 5px

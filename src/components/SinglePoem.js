@@ -1,45 +1,32 @@
 import React, { Component } from 'react';
 import '../SinglePoem.css'
+import axios from 'axios'
 
 
 class SinglePoem extends Component {
 
-    // componentDidMount = () => {
-    //     this.setState({ word: this.props.poem.wordSearched }, () => { console.log(this.state.word) })
-    //     this.setState({ lyrics: this.props.poem.lyrics })
-    //     this.setState({ title: this.props.title })
-    //     this.setState({ userName: this.props.userName })
+    deletePoem = () => {
+        axios.get('http://localhost:4000/rhymeData/deletePoem/' + this.props.poem._id)
+        this.props.deletePoemState(this.props.poem._id)
+    }
 
-    // }
-    // poem = [{
-    // lyrics: []
-    // }]
     render() {
-        console.log(this.props.poem)
         return (
-            <div>
+            <div className="poemContainer">
                 <div>
-                    {this.props.poem
-                    .filter((poem) => poem.wordSearched.includes(this.props.search))
-                    .map(p => {
-                        return (
-                            <div className="poemContainer">
-                                <p>{p.title} / {p.userName}</p>
-                                <div>  
-                                    {p.lyrics.map(b => {
-                                        if(b.id === p.lyrics[p.lyrics.length-1].id){
-                                            return <div>{b.text + " " + b.rhyme + "."}</div>
-                                        }
-                                        else{
-                                        return <div>{b.text + " " + b.rhyme + ","}</div>
-                                    }
-                                    })}
-                                </div>
-                            </div>
-                        )
-                    })}
+                    <p>{this.props.poem.title} / {this.props.poem.userName}</p>
+                    <div>
+                        {this.props.poem.lyrics.map(b => {
+                            if (b.id === this.props.poem.lyrics[this.props.poem.lyrics.length - 1].id) {
+                                return <div>{b.text + " " + b.rhyme + "."}</div>
+                            }
+                            else {
+                                return <div>{b.text + " " + b.rhyme + ","}</div>
+                            }
+                        })}
+                        <i class="far fa-trash-alt trash" onClick={this.deletePoem}></i>
+                    </div>
                 </div>
-
             </div>
         );
     }

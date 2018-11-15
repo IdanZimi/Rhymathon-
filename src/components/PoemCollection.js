@@ -14,10 +14,13 @@ class PoemCollection extends Component {
     componentDidMount() {
         axios.get('http://localhost:4000/rhymeData').then((result) => {
             let data = result.data;
-            let poems = [...this.state.poems]
-            poems.push(data)
-            this.setState({ poems: poems })
+            this.setState({ poems: data })
         });
+    }
+
+    deletePoemState = (id) => {
+        let poemsArr = this.state.poems.filter((poem)=>poem._id !== id)
+        this.setState({poems:poemsArr})
     }
     updateSearch = (e) => {
         this.setState({ [e.target.name]: e.target.value })
@@ -26,10 +29,14 @@ class PoemCollection extends Component {
     render() {
         return (
             <div className="backPoemCollections">
-                <input className="searchInput" type="text" value={this.state.search} name="search" placeholder="word used to bulid song" onChange={this.updateSearch} />
+                <div className="searchArea">
+                    <input className="searchInput" type="text" value={this.state.search} name="search" placeholder="word used to bulid song" onChange={this.updateSearch} />
+                    <i class="fas fa-search"></i>
+                </div>
                 {this.state.poems
+                    .filter((poem) => poem.wordSearched.includes(this.state.search))
                     .map(poem => {
-                        return <SinglePoem key={poem[0]._id} poem={poem} search={this.state.search} />
+                        return <SinglePoem key={poem._id} poem={poem} deletePoemState={this.deletePoemState} />
                     })}
             </div>
         );

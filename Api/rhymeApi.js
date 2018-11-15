@@ -24,4 +24,15 @@ router.get('/', function (req, res) {
         }
     })
 })
+router.get('/deletePoem/:id', function (req, res) {
+    console.log(req.body)
+    Rhyme.findByIdAndDelete(req.params.id).exec(function (err, data) {
+        if (err) {
+            console.error(err)
+            res.status(500).send(err)
+        } else {
+            res.send()
+        }
+    })
+})
 module.exports = router;

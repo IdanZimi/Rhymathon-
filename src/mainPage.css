@@ -62,9 +62,11 @@
 
   }
   .mainPageHeader{
-    font-size: 50px;  
+    font-size: 90px;  
     margin-top: 50px; 
     font-family: 'Chewy', cursive;
     color:#aaaeaf;
     text-align: center ;
+    -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-// import '../App.css'
+import '../SinglePoem.css'
+
 
 class SinglePoem extends Component {
 
@@ -17,10 +18,10 @@ class SinglePoem extends Component {
         console.log(this.props.poem)
         return (
             <div>
-                <div className="poemContainer">
+                <div>
                     {this.props.poem.map(p => {
                         return (
-                            <div>
+                            <div className="poemContainer">
                                 <p>{p.wordSearched} / {p.userName}</p>
                                 <div>  
                                     {p.lyrics.map(b => {

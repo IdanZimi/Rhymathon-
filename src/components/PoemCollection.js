@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css'
+import '../PoemCollection.css'
 import axios from 'axios'
 import SinglePoem from './SinglePoem';
 

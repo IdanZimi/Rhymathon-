@@ -2,18 +2,29 @@
     margin-top: 100px; 
     
 }
+.titleAuthorInout{
+    width:20%
+}
+.otherInput{
+    width: 50%; 
+}
 .input{
     border : none;
-    margin-left: 400px;  
     border-radius: 5px; 
     background-color: #b6b5b5; 
     color: white  ;
     font-weight: 200 ; 
     font-family: 'Allerta Stencil', sans-serif;
-    width: 400px; 
 
 }
 .poemline{
     margin : 0 auto ; 
+    text-align: center
+    
+}
+.author{
+    margin-left: 5px
+}
+.buttonSave{
     
 }

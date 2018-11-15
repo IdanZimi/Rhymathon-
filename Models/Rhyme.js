@@ -3,6 +3,7 @@ const Schema = mongoose.Schema
 
 let rhymeSchema = new Schema({
     title: String,
+    userName:String,
     wordSearched:String,
     lyrics:[]
 })

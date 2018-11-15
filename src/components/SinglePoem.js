@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+// import '../App.css'
+
+class SinglePoem extends Component {
+
+    // componentDidMount = () => {
+    //     this.setState({ word: this.props.poem.wordSearched }, () => { console.log(this.state.word) })
+    //     this.setState({ lyrics: this.props.poem.lyrics })
+    //     this.setState({ title: this.props.title })
+    //     this.setState({ userName: this.props.userName })
+
+    // }
+    // poem = [{
+    // lyrics: []
+    // }]
+    render() {
+        console.log(this.props.poem)
+        return (
+            <div>
+                <div className="poemContainer">
+                    {this.props.poem.map(p => {
+                        return (
+                            <div>
+                                <p>{p.wordSearched} / {p.userName}</p>
+                                <div>  
+                                    {p.lyrics.map(b => {
+                                        return <div>{b.text + " " + b.rhyme}</div>
+                                    })}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
+            </div>
+        );
+    }
+}
+
+export default SinglePoem;

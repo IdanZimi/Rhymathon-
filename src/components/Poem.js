@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import '../mainPage.css'
 import '../lines.css'
 import Line from './line'
 

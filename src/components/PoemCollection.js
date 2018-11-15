@@ -27,6 +27,7 @@ class PoemCollection extends Component {
         return (
             <div className="backPoemCollections">
                 <input className="searchInput" type="text" value={this.state.search} name="search" placeholder="word used to bulid song" onChange={this.updateSearch} />
+                <i class="fas fa-search"></i>
                 {this.state.poems
                     .map(poem => {
                         return <SinglePoem key={poem[0]._id} poem={poem} search={this.state.search} />

@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 .poemContainer {
-    background: #fff;
+    font-family: 'Quicksand', sans-serif;
+    background: rgb(65, 64, 64);
+    color:white;
     border-radius: 2px;
     display: inline-block;
     margin: 1rem;

@@ -23,6 +23,7 @@ class Poem extends Component {
         }).then((res) => {
             console.log(res.data);
             this.props.removePoem()
+            alert('Your poem has been saved.')
         })
     }
 

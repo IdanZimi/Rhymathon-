@@ -28,11 +28,12 @@ class mainPage extends Component {
     this.setState({ word: e.target.value })
   }
 
-  removePoem() {
-    this.setState({ saved: true })
+
+  removePoem = () => {
+    this.setState({ saved: true, lines: [] })
   }
 
-  addPoem() {
+  addPoem = () => {
     this.setState({ saved: false })
   }
 
@@ -80,7 +81,13 @@ class mainPage extends Component {
             <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
             <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
           </div>
-          <Poem word={this.state.word} lines={this.state.lines} updateLines={this.updateLines} removePoem={this.state.removePoem} />
+          <Poem
+            word={this.state.word}
+            lines={this.state.lines}
+            updateLines={this.updateLines}
+            removePoem={this.removePoem}
+            saved={this.state.saved}
+          />
         </div>
       )
     }

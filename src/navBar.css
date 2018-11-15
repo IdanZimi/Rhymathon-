@@ -1,0 +1,23 @@
+.rhymeNavbar{
+    background-color: grey;
+    display:block;
+    padding:1%;
+
+}
+.firstLink{
+    margin-left:1%
+}
+.restLinks{
+    border-left: 1px solid white;
+}
+.link:hover{
+    color:gray;
+    background-color: white;
+    
+}
+.link{
+    padding-right:2%;
+    padding-left:1%;
+    padding-top:1%;
+    padding-bottom:1%;
+}

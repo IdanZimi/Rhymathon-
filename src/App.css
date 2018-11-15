@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Allerta+Stencil');
+@import url('https://fonts.googleapis.com/css?family=Chewy|Leckerli+One');
 body {
   background-repeat: no-repeat ; 
   background-size: cover ;
@@ -6,12 +6,20 @@ body {
 }
 
 #my{
-  font-family: 'Allerta Stencil', sans-serif;
-  font-weight: 700  ; 
-  font-size: 100px; 
-  text-align: center;   
+  font-family: 'Chewy', cursive;
+  font-size: 120px; 
+  text-align: center; 
   margin-top: 100px; 
-  color: grey;
+  /* color: rgb(207, 207, 184); */
+  color: rgb(252, 204, 211);
+}
+.back {
+  position: absolute;
+  height: 100%;
+  width:100%;
+  background-image: url("https://coolbackgrounds.io/images/backgrounds/compute-83062381.png");
+  background-size: cover; 
+  background-repeat: no-repeat;
   
 }
 .button {
@@ -28,6 +36,10 @@ body {
   cursor: pointer;
   margin: 0 auto ;
   margin-top: 150px;  
+  
+}
+.enterSpan{
+  color: white;
 }
 
 .button span {
@@ -38,6 +50,7 @@ body {
   text-align: center ;
   color: white; 
   font-family: 'Allerta Stencil', sans-serif;
+  
 }
 a{
   color:white; 

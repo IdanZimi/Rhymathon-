@@ -52,12 +52,30 @@
 .word-search{
       margin:0 auto;
       text-align: center;
-      margin-top:12%;
+      margin-top:5%;
 }
 .wordInput{
       margin : 0 auto ;
-      border: none ; 
+      border-radius: 8px;  
       color: black;
+      font-weight: 700; 
       font-family: 'Allerta Stencil', sans-serif;
 
   }
+  .mainPageHeader{
+    font-size: 90px;  
+    margin-top: 50px; 
+    font-family: 'Chewy', cursive;
+    color:#aaaeaf;
+    text-align: center ;
+    -webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: black;
+}
+.numberLinesInput { 
+    margin : 0 auto ;
+      border-radius: 8px;  
+      color: black;
+      font-weight: 700; 
+      font-family: 'Allerta Stencil', sans-serif;
+      width: 250px; 
+}

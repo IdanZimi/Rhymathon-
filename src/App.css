@@ -10,7 +10,7 @@ body {
   /* color: rgb(207, 207, 184); */
   color: rgb(252, 204, 211);
   -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
+   -webkit-text-stroke-color: black;
 }
 .back {
   position: absolute;
@@ -39,6 +39,7 @@ body {
 }
 .enterSpan{
   color: white;
+
 }
 
 .button span {
@@ -49,7 +50,8 @@ body {
   text-align: center ;
   color: white; 
   font-family: 'Allerta Stencil', sans-serif;
-  
+  /* font-family: 'Chewy', cursive; */
+
 }
 a{
   color:white; 

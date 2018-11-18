@@ -24,6 +24,15 @@ class SinglePoem extends Component {
           [event.target.name]: event.target.value
         })
       }
+    playAudio = async ()=> {
+        let content = this.props.poem.title+" by "+this.props.poem.userName+" "+ this.props.poem.lyrics.map(b => { return b.text + " " + b.rhyme+" "});
+        try{
+            await axios.get('http://api.voicerss.org/?key=b17041a7246e4dea8c714eb7da05a48b&hl=en-us&src='+content)
+        }
+        catch (error){
+            alert('couldnt play poem. :(')
+        }
+    }
     sendMail = async ()=>{
         let content = this.props.poem.lyrics.map(b => { return b.text + " " + b.rhyme});
         try{
@@ -55,6 +64,7 @@ class SinglePoem extends Component {
                         })}
                         <i class="far fa-trash-alt trash" onClick={this.deletePoem}></i>
                         <i class="far fa-envelope mail" onClick={this.popUp}></i>
+                        <i class="fas fa-headphones voice" onClick={this.playAudio}></i>
                     </div>
                 </div>
             </div>

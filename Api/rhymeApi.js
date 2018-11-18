@@ -1,7 +1,7 @@
 const express = require('express');
 let Rhyme = require('../Models/Rhyme');
 const router = express.Router();
-
+const nodemailer = require('nodemailer');
 
 router.post('/', function (req, res) {
     let word = req.body.word
@@ -34,5 +34,29 @@ router.get('/deletePoem/:id', function (req, res) {
             res.send()
         }
     })
+})
+router.get('/send/:emailTo/:content', function (req,res){
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'mamitut3@gmail.com',
+          pass: '15123123'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'mamitut3@gmail.com',
+        to: req.params.emailTo,
+        subject: 'You got a new Freaky Poem!',
+        text: req.params.content
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            res.status(500).send(err)
+        } else {
+          res.send('Email sent: ' + info.response);
+        send}
+      });
 })
 module.exports = router;

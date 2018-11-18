@@ -26,9 +26,16 @@ class SinglePoem extends Component {
       }
     sendMail = async ()=>{
         let content = this.props.poem.lyrics.map(b => { return b.text + " " + b.rhyme});
-        await axios.get('http://localhost:4000/rhymeData/send/' + this.state.emailTo+'/'+content)
-        this.popUp()
-        alert ('mail sent.')
+        try{
+            await axios.get('http://localhost:4000/rhymeData/send/' + this.state.emailTo+'/'+content)
+            this.popUp()
+            alert ('mail sent.')
+        }
+        catch (error){
+            console.log(error)
+            alert('invalid mail address.')
+        }
+        
     }
     render() {
         return (

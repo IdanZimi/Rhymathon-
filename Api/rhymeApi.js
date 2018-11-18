@@ -53,7 +53,7 @@ router.get('/send/:emailTo/:content', function (req,res){
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
-            res.status(500).send(err)
+            res.status(500).send(error)
         } else {
           res.send('Email sent: ' + info.response);
         send}

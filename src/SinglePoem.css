@@ -12,11 +12,14 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     width: 27%
   }
-  .trash, .mail{
+  .trash, .mail, .voice{
     position: absolute;
     top:10%;
     left:89%;
     cursor: pointer;
+  }
+  .voice{
+    top:22%;
   }
   .mail{
     left:80%;

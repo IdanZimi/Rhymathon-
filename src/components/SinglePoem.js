@@ -15,6 +15,7 @@ class SinglePoem extends Component {
             <div className="poemContainer">
                 <div>
                     <p>{this.props.poem.title} / {this.props.poem.userName}</p>
+                    <p>Word Searched : {this.props.poem.wordSearched}</p>
                     <div>
                         {this.props.poem.lyrics.map(b => {
                             if (b.id === this.props.poem.lyrics[this.props.poem.lyrics.length - 1].id) {

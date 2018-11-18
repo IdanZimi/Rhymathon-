@@ -18,7 +18,7 @@ class mainPage extends Component {
   }
   updateRadio=(value , id )=>{
     console.log(value)
-    console.log(this.state.lines)
+        
   }
 
   updateLines = (id, value) => {

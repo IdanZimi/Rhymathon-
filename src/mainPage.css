@@ -56,8 +56,9 @@
 }
 .wordInput{
       margin : 0 auto ;
-      border: none ; 
+      border-radius: 8px;  
       color: black;
+      font-weight: 700; 
       font-family: 'Allerta Stencil', sans-serif;
 
   }
@@ -69,4 +70,12 @@
     text-align: center ;
     -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
+}
+.numberLinesInput { 
+    margin : 0 auto ;
+      border-radius: 8px;  
+      color: black;
+      font-weight: 700; 
+      font-family: 'Allerta Stencil', sans-serif;
+      width: 250px; 
 }

@@ -16,6 +16,7 @@
     position: absolute;
     top:10%;
     left:89%;
+    cursor: pointer;
   }
   .mail{
     left:80%;
@@ -80,4 +81,4 @@
     height: 40px;
     border:none;
   }
-  
+ 

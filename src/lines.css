@@ -1,10 +1,11 @@
 .lines{
-    margin-top: 100px; 
+    margin-top: 50px; 
     margin-left: 5%; 
     
 }
 .titleAuthorInout{
-    width:19%
+    width:19%;
+    
 }
 .otherInput{
     width: 35%; 
@@ -13,14 +14,15 @@
     border : none;
     border-radius: 5px; 
     background-color: #b6b5b5; 
-    color: white  ;
-    font-weight: 200 ; 
+    color: black   ;
+    font-weight: 700 ; 
     font-family: 'Allerta Stencil', sans-serif;
 
 }
 .poemline{
     margin : 5px ; 
-    text-align: center
+    text-align: center;
+    
     
 }
 .titleLine{

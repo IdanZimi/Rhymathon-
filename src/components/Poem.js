@@ -10,7 +10,7 @@ class Poem extends Component {
         this.state = {
             title: "",
             userName: "",
-            radio : ""
+            radio: ""
         }
     }
 
@@ -27,9 +27,9 @@ class Poem extends Component {
             alert('Your poem has been saved')
         })
     }
-    updateRadio=(e)=>{
-        let radio = e.target.value 
-        this.setState({radio : radio})
+    updateRadio = (e) => {
+        let radio = e.target.value
+        this.setState({ radio: radio })
         console.log(this.state.radio)
     }
 
@@ -39,6 +39,10 @@ class Poem extends Component {
 
     updateLines = (id, value) => {
         this.props.updateLines(id, value)
+    }
+
+    addLine=()=>{
+        this.props.addLine()
     }
 
 
@@ -57,11 +61,18 @@ class Poem extends Component {
                     </div>
                     <div className="poemline">
                         {this.props.lines.map((line) => {
-                            return <Line key={line.id} line={line} updateLines={this.updateLines} radio={this.state.radio} updateRadio={this.updateRadio}/>
+                            return <Line
+                                key={line.id}
+                                line={line}
+                                updateLines={this.updateLines}
+                                radio={this.state.radio}
+                                updateRadio={this.updateRadio}
+                            />
                         })}
 
                     </div>
                 </div>
+                <button type="button" onClick={this.addLine}>Add a Line</button>
                 <div className="saveButtonDiv">
                     <button className="buttonSave button" onClick={this.SaveToData} type="button"><span>Save</span></button>
                 </div>

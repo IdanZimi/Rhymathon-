@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Poem from './Poem'
 import '../mainPage.css'
+import WordSearch from './wordSearch';
+
 class mainPage extends Component {
 
   constructor() {
     super()
     this.state = {
       lines: [],
+      rhymes: [],
       word: '',
       saved: false,
       numLines: Number
@@ -25,13 +28,10 @@ class mainPage extends Component {
     this.setState({ lines: lines })
   }
 
-  updateWord = (e) => {
-    this.setState({ word: e.target.value })
+  updateState = (e) => {
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  updateNumLines = (e) => {
-    this.setState({ numLines: e.target.value })
-  }
 
   removePoem = () => {
     this.setState({ saved: true, lines: [] })
@@ -39,6 +39,22 @@ class mainPage extends Component {
 
   addPoem = () => {
     this.setState({ saved: false })
+  }
+
+  checkIfErr(rhymes) {
+    if (this.state.word === '') {
+      return alert("Please fill in a word.")
+    }
+    else if (this.state.numLines === Number) {
+      // alert("Please state the number of lines for your poem.")
+      this.setState({ numLines: 4 })
+    }
+    else if (this.state.numLines > 10) {
+      return alert("You must have less than 10 lines.")
+    }
+    else if (rhymes[0] === undefined) {
+      return alert('This word does not rhyme with any currently known word.')
+    }
   }
 
   getRhymes = async () => {
@@ -50,19 +66,7 @@ class mainPage extends Component {
     const myRhymes = []
     let i = 0
 
-    if (this.state.word === '') {
-      return alert("Please fill in a word.")
-    }
-    else if (this.state.numLines === Number ){
-      // alert("Please state the number of lines for your poem.")
-      this.setState({numLines : 4})
-    }
-    else if(this.state.numLines>10){  
-      return alert("You must have less than 10 lines.")
-    }
-    else if (rhymes[0] === undefined) {
-      return alert('This word does not rhyme with any currently known word.')
-    }
+    this.checkIfErr(rhymes)
 
     while (i < 10) {
       console.log(rhymes[Math.floor((Math.random() * rhymes.length))].word)
@@ -71,20 +75,30 @@ class mainPage extends Component {
         myRhymes.push(splitArr[0])
         i++
       }
-      // if (!splitArr[1]) {
-      //   let line = { text: "", rhyme: splitArr[0], id: ++i }
-      //   lines.push(line);
-      // }
     }
 
     let a = 0
     while (a < this.state.numLines) {
-      let line = { text: "", rhyme: myRhymes[a], id: ++a }
+      let line = { text: "", rhyme: myRhymes[0], id: ++a }
+      myRhymes.splice(0, 1)
       lines.push(line)
     }
 
-    this.setState({ lines: lines })
+    this.setState({ lines: lines, rhymes: myRhymes })
+    console.log(this.state.rhymes)
     this.addPoem()
+  }
+
+  addLine=()=>{
+    if(this.state.rhymes[0]===undefined){
+      return alert('Sorry, you can only have 10 lines.')
+    }
+    let lines = [...this.state.lines]
+    let rhymes = [...this.state.rhymes]
+    let newLine = {text:'', rhyme:rhymes[0], id:lines[lines.length-1].id++}
+    lines.push(newLine)
+    rhymes.splice(0,1)
+    this.setState({lines:lines, rhymes:rhymes})
   }
 
   render() {
@@ -94,11 +108,12 @@ class mainPage extends Component {
         <div className="mainPage backMainPage">
           <h1 className="mainPageHeader">Poem Template</h1>
 
-          <div className="word-search">
-            <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
-            <input className="numberLinesInput" type="number"min='0'  max='10' value={this.state.numLines} onChange={this.updateNumLines} placeholder="Number of Lines" />
-            <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
-          </div>
+          <WordSearch
+            word={this.state.word}
+            numLines={this.state.numLines}
+            updateState={this.updateState}
+            getRhymes={this.getRhymes}
+          />
         </div>)
     }
     else {
@@ -106,17 +121,19 @@ class mainPage extends Component {
         <div className="mainPage backMainPage">
           <h1 className="mainPageHeader">Song Template</h1>
 
-          <div className="word-search">
-            <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />
-            <input className="numberLinesInput" type="number" min='0' max='10' value={this.state.numLines} onChange={this.updateNumLines} placeholder="Number of Lines" />
-            <button className="button" type="button" onClick={this.getRhymes}><span>Go</span></button>
-          </div>
+          <WordSearch
+            word={this.state.word}
+            numLines={this.state.numLines}
+            updateState={this.updateState}
+            getRhymes={this.getRhymes}
+          />
           <Poem
             word={this.state.word}
             lines={this.state.lines}
             updateLines={this.updateLines}
             removePoem={this.removePoem}
             saved={this.state.saved}
+            addLine={this.addLine}
           />
         </div>
       )

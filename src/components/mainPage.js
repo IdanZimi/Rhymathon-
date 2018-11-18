@@ -16,6 +16,10 @@ class mainPage extends Component {
       numLines: Number
     }
   }
+  updateRadio=(value , id )=>{
+    console.log(value)
+    console.log(this.state.lines)
+  }
 
   updateLines = (id, value) => {
     let lines = this.state.lines.map((line) => {
@@ -101,6 +105,18 @@ class mainPage extends Component {
     this.setState({lines:lines, rhymes:rhymes})
   }
 
+  removeLine=(id)=>{
+    let lines = [...this.state.lines]
+    let rhymes = [...this.state.rhymes]
+    lines.map((line)=>{
+      if(line.id === id){
+        let index = line.indexOf
+        rhymes.push(line.rhyme)
+        lines.splice(index,1)
+      }
+    })
+  }
+
   render() {
 
     if (this.state.lines[0] === undefined || this.state.saved === true) {
@@ -134,6 +150,7 @@ class mainPage extends Component {
             removePoem={this.removePoem}
             saved={this.state.saved}
             addLine={this.addLine}
+            updateRadio={this.updateRadio}
           />
         </div>
       )

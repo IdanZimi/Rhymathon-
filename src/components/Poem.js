@@ -10,8 +10,13 @@ class Poem extends Component {
         this.state = {
             title: "",
             userName: "",
-            radio: ""
+            
         }
+    }
+
+    updateRadio = (value , id ) => {
+        this.props.updateRadio(value , id)
+        
     }
 
     SaveToData = () => {
@@ -26,11 +31,6 @@ class Poem extends Component {
             this.props.removePoem()
             alert('Your poem has been saved')
         })
-    }
-    updateRadio = (e) => {
-        let radio = e.target.value
-        this.setState({ radio: radio })
-        console.log(this.state.radio)
     }
 
     updateText = (e) => {
@@ -65,8 +65,8 @@ class Poem extends Component {
                                 key={line.id}
                                 line={line}
                                 updateLines={this.updateLines}
-                                radio={this.state.radio}
-                                updateRadio={this.updateRadio}
+                                // radio={this.state.radio}
+                                updateRadio={this.props.updateRadio}
                             />
                         })}
 

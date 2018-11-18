@@ -11,12 +11,18 @@ class Line extends Component {
         let value = e.target.value
         this.props.updateLines(id, value)
     }
+    updateRadio = (e) => {
+        let value= e.target.value
+        let id = this.props.line.id
+        this.props.updateRadio(value, id)
+
+    }
 
     render() {
         return (
 
             <div className="poemline">
-                 <input type="radio" name="line" value={this.props.radio} onChange={this.props.updateRadio}/>
+                <input type="radio" name="line" value={this.props.line.text+" "+this.props.line.rhyme} onChange={this.updateRadio} />
                 <input className="input otherInput" type="text" value={this.props.line.text} name="line2" onChange={this.updateText} />
                 <div className="rhyme">{this.props.line.rhyme}</div>
             </div>

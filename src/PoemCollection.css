@@ -8,7 +8,9 @@
 
 .searchInput{
     margin-left: 2% ; 
-    margin-top : 2% ;         
+    margin-top : 2% ;   
+    border-radius: 8px;
+           
 }
       
   

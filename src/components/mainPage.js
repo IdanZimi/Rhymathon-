@@ -65,7 +65,7 @@ class mainPage extends Component {
     if (this.state.lines[0] === undefined || this.state.saved === true) {
       return (
         <div className="mainPage backMainPage">
-          <h1 className="mainPageHeader">Song Template</h1>
+          <h1 className="mainPageHeader">Poem Template</h1>
 
           <div className="word-search">
             <input className="wordInput" type="text" value={this.state.word} onChange={this.updateWord} placeholder="Choose a word" />

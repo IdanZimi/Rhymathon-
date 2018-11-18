@@ -9,7 +9,8 @@ class Poem extends Component {
         super()
         this.state = {
             title: "",
-            userName: ""
+            userName: "",
+            radio : ""
         }
     }
 
@@ -23,8 +24,13 @@ class Poem extends Component {
         }).then((res) => {
             console.log(res.data);
             this.props.removePoem()
-            alert('Your poem has been saved.')
+            alert('Your poem has been saved')
         })
+    }
+    updateRadio=(e)=>{
+        let radio = e.target.value 
+        this.setState({radio : radio})
+        console.log(this.state.radio)
     }
 
     updateText = (e) => {
@@ -41,14 +47,17 @@ class Poem extends Component {
             <div>
                 <div className="lines">
                     <div className="titleLine">
+                        <button><i class="fas fa-angle-up up"></i></button>
+                        <button><i class="fas fa-angle-down down"></i></button>
                         Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
                         <span className="author">
                             Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
                         </span>
+
                     </div>
                     <div className="poemline">
                         {this.props.lines.map((line) => {
-                            return <Line key={line.id} line={line} updateLines={this.updateLines} />
+                            return <Line key={line.id} line={line} updateLines={this.updateLines} radio={this.state.radio} updateRadio={this.updateRadio}/>
                         })}
 
                     </div>

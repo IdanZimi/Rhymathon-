@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../mainPage.css'
+import '../Css/mainPage.css'
 
 class WordSearch extends Component {
 

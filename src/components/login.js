@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import '../App.css'
+import '../Css/App.css'
 import { Link } from 'react-router-dom'
 import axios from 'axios';
+import '../Css/login.css'
 
 
 class Login extends Component {
@@ -32,10 +33,9 @@ class Login extends Component {
   render() {
     return (
       <div className="back">
-        <h4>Login</h4>
-        <input type='text' placeholder='Username here' name='username' value={this.state.username} onChange={this.updateState} />
-        <button type='button' onClick={this.getUser}>Login</button>
-        <Link to="/register">Register</Link>
+        <input type='text' className="loginInput" placeholder='Username here' name='username' value={this.state.username} onChange={this.updateState} />
+        <button type='button' className="loginButton button" onClick={this.getUser}><span className='enterSpan'>Login</span></button>
+        <Link to="/register" className="registerLink">Register</Link>
       </div>
     );
   }

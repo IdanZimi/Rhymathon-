@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Poem from './Poem'
-import '../mainPage.css'
+import '../Css/mainPage.css'
 import WordSearch from './wordSearch';
 
 class mainPage extends Component {

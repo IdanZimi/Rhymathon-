@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Css/profilePage.css'
-import MyPoem from './MyPoem';
+import MyPoem from './MyPoem'
+
 class ProfilePage extends Component {
     constructor() {
         super()

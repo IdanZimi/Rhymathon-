@@ -9,12 +9,18 @@ router.post('/', function (req, res) {
     let title = req.body.title
     let userName = req.body.userName
     let lines = req.body.lines
+    let userId = req.body.userId
     let rhyme = new Rhyme({ wordSearched: word, title: title, userName: userName, lyrics: lines })
     rhyme.save(function (error, rhyme) {
         if (error) return res.status(500).send(error)
         else {
-            User.update({userName:userName},{$push:{poems:rhyme._idnnn}})
-            res.send(rhyme)
+            User.findByIdAndUpdate(userId, { $push: { "poems": rhyme._id } }).exec((error) => {
+                if (error) return res.status(500).send(error)
+                else {
+
+                    res.send(rhyme)
+                }
+            })
         }
     })
 })

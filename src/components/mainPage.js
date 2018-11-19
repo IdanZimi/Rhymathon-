@@ -16,6 +16,7 @@ class mainPage extends Component {
       numLines: Number
     }
   }
+
   updateRadio=(value , id )=>{
     console.log(value)
     console.log(this.state.lines)   
@@ -45,7 +46,16 @@ class mainPage extends Component {
     this.setState({ saved: false })
   }
 
-  checkIfErr(rhymes) {
+
+  getRhymes = async () => {
+    let result = await axios.get('https://api.datamuse.com/words?rel_rhy=' + this.state.word)
+    //random rhymes
+    let rhymes = result.data
+    console.log(rhymes)
+    const lines = []
+    const myRhymes = []
+    let i = 0
+
     if (this.state.word === '') {
       return alert("Please fill in a word.")
     }
@@ -59,18 +69,6 @@ class mainPage extends Component {
     else if (rhymes[0] === undefined) {
       return alert('This word does not rhyme with any currently known word.')
     }
-  }
-
-  getRhymes = async () => {
-    let result = await axios.get('https://api.datamuse.com/words?rel_rhy=' + this.state.word)
-    //random rhymes
-    let rhymes = result.data
-    console.log(rhymes)
-    const lines = []
-    const myRhymes = []
-    let i = 0
-
-    this.checkIfErr(rhymes)
 
     while (i < 10) {
       console.log(rhymes[Math.floor((Math.random() * rhymes.length))].word)

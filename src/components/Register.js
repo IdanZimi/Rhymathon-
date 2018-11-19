@@ -9,7 +9,7 @@ class Landing extends Component {
             username: '',
             firstname: '',
             lastname: ''
-        }
+        } 
     }
 
     updateState = (e) => {

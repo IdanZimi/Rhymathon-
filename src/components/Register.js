@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom'
+
 import '../Css/App.css'
 import axios from 'axios';
 import '../Css/register.css'
@@ -11,7 +13,7 @@ class Landing extends Component {
             username: '',
             firstname: '',
             lastname: ''
-        } 
+        }
     }
 
     updateState = (e) => {
@@ -29,7 +31,7 @@ class Landing extends Component {
             alert('Your lastname must be filled in')
         }
         else {
-            let newUser = {username:this.state.username, firstname:this.state.firstname, lastname:this.state.lastname}
+            let newUser = { username: this.state.username, firstname: this.state.firstname, lastname: this.state.lastname }
             let user = await axios.post('http://localhost:4000/userData', newUser)
             localStorage.setItem("user", JSON.stringify([user]))
             window.location.href = "/n/mainPage";
@@ -40,6 +42,7 @@ class Landing extends Component {
         return (
             <div className="back">
                 <h4 className="registerTitle">Register:</h4>
+                <Link to="/"><i class="fas fa-arrow-left amiti"></i></Link>
                 <input type='text' placeholder='Username ' className="userInput" name='username' value={this.state.username} onChange={this.updateState} />
                 <input type='text' placeholder='First Name ' className="nameInput" name='firstname' value={this.state.firstname} onChange={this.updateState} />
                 <input type='text' placeholder='Last Name ' className="lastnameInput" name='lastname' value={this.state.lastname} onChange={this.updateState} />

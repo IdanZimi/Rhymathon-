@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Chewy|Pacifico');
 .button {    
   border-radius: 15px;
   background-color: grey;
@@ -45,7 +46,7 @@
     position: absolute;
     height: 100%;
     width:100%;
-    background-image: url("../images/background-cinza-para-site.jpg");
+    background-image: url("https://images.pexels.com/photos/1054222/pexels-photo-1054222.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     background-size: cover; 
     background-repeat: no-repeat;
   }
@@ -65,11 +66,12 @@
   .mainPageHeader{
     font-size: 90px;  
     margin-top: 50px; 
-    font-family: 'Chewy', cursive;
-    color:#aaaeaf;
+    font-family: Pacifico;
+    color:#ebec9adc;
     text-align: center ;
     -webkit-text-stroke-width: 1px;
    -webkit-text-stroke-color: black;
+   font-weight: 500 ;
 }
 .numberLinesInput { 
     margin : 0 auto ;

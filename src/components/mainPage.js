@@ -170,7 +170,7 @@ class mainPage extends Component {
     else {
       return (
         <div className="mainPage backMainPage">
-          <h1 className="mainPageHeader">Song Template</h1>
+          <h1 className="mainPageHeader">Poem Template</h1>
 
           <WordSearch
             word={this.state.word}

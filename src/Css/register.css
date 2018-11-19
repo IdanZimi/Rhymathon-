@@ -21,11 +21,19 @@
     font-size:70px;
     top:10%;
     font-family: 'Nunito', sans-serif;
-    font-weight: 7  00;
+    font-weight: 700;
     left: 38.5%;
     color: rgba(252, 204, 211, 0.582);
 
 }
 .regButton{
+    position: absolute;
     margin-top:500px;
+    width : 10%;
+    left:42.5%;   
 }
+.amiti{
+    color: rgba(255, 255, 255, 0.692) ; 
+    font-size:30px;
+    margin:20px;
+  }

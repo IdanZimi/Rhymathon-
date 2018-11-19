@@ -3,7 +3,7 @@ let User = require('../Models/User');
 const router = express.Router();
 
 router.get('/:username', function (req, res) {
-    User.find({userName:req.params.username}).exec(function (err, data) {
+    User.find({userName:req.params.username}).populate('poems').exec(function (err, data) {
         if (err) {
             console.error(err)
             res.status(500).send(err)

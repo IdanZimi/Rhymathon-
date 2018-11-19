@@ -8,27 +8,37 @@ class Poem extends Component {
     constructor() {
         super()
         this.state = {
-            title: "",
-            userName: "",
-            
+            user:"",
+            title: ""
+
         }
     }
+    componentDidMount() {
+        let user = JSON.parse(localStorage.getItem("user") || "[]")
+        this.setState({user:user})
+    }
+
+    updateRadio = (value, id) => {
+        this.props.updateRadio(value, id)
 
     updateRadio = (id) => {
         this.props.updateRadio(id)
 
-    }
 
     SaveToData = () => {
         axios.post('http://localhost:4000/rhymeData ', {
             word: this.props.word,
-            userName: this.state.userName,
+            userName: this.state.user.userName,
             title: this.state.title,
-            lines: this.props.lines
-
+            lines: this.props.lines,
+            userId: this.state.user._id
         }).then((res) => {
             console.log(res.data);
             this.props.removePoem()
+            let user = {...this.state.user}
+            user.poems.push(res.data)
+            this.setState({user:user})
+            localStorage.setItem("user", JSON.stringify(this.state.user))
             alert('Your poem has been saved')
         })
     }
@@ -62,7 +72,7 @@ class Poem extends Component {
                         <button onClick={this.moveDown}><i class="fas fa-angle-down down"></i></button>
                         Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
                         <span className="author">
-                            Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
+                            Author : <input className="input titleAuthorInout" type="text" value={this.state.user.userName} name="userName" />
                         </span>
 
                     </div>

@@ -2,10 +2,15 @@
     background-color: #151019;
     display:block;
     padding:1%;
-
+    position: sticky;
+    top: 0;
 }
 .firstLink{
     margin-left:1%
+}
+.logoutLink{
+    float:right;
+    padding:none
 }
 .restLinks{
     border-left: 1px solid white;

@@ -24,4 +24,7 @@ app.use(function (req, res, next) {
 let rhymeApi = require("./Api/rhymeApi") 
 app.use("/rhymeData", rhymeApi)
 
+let userApi = require("./Api/userApi") 
+app.use("/userData", userApi)
+
 app.listen(4000)

@@ -30,26 +30,32 @@ class mainPage extends Component {
     let lines = [...this.state.lines]
     let index1 = this.state.index
     let index2 = index1 + 1
-    if(index1 === this.state.lines.length-1){
-      return alert('You are trying to move down the last')
+    if (index1 === Number) {
+      return alert('Please select a line.')
+    }
+    else if (index1 === this.state.lines.length - 1) {
+      return alert('You are trying to move down the last line.')
     }
     let temp = { ...lines[index2] }
     lines[index2] = { ...lines[index1] }
     lines[index1] = temp
-    this.setState({ lines: lines, index:index2 })
+    this.setState({ lines: lines, index: index2 })
     console.log(index1)
   }
   moveUp = () => {
     let lines = [...this.state.lines]
     let index1 = this.state.index
     let index2 = index1 - 1
-    if(index1 === 0){
+    if (index1 === Number) {
+      return alert('Please select a line.')
+    }
+    else if (index1 === 0) {
       return alert('You are trying to move up the first')
     }
     let temp = { ...lines[index2] }
     lines[index2] = { ...lines[index1] }
     lines[index1] = temp
-    this.setState({ lines: lines, index:index2 })
+    this.setState({ lines: lines, index: index2 })
     console.log(index1)
   }
 
@@ -131,19 +137,19 @@ class mainPage extends Component {
     let newLine = { text: '', rhyme: rhymes[0], id: this.state.reservedID++ }
     lines.push(newLine)
     rhymes.splice(0, 1)
-    this.setState({ lines: lines, rhymes: rhymes, reservedID:this.state.reservedID++ })
+    this.setState({ lines: lines, rhymes: rhymes, reservedID: this.state.reservedID++ })
   }
 
-  removeLine = (id) => {
+  deleteLine = () => {
     let lines = [...this.state.lines]
     let rhymes = [...this.state.rhymes]
-    lines.map((line) => {
-      if (line.id === id) {
-        let index = line.indexOf
-        rhymes.push(line.rhyme)
-        lines.splice(index, 1)
-      }
-    })
+    let index = this.state.index
+    if (index === Number) {
+      return alert('Please select a line.')
+    }
+    rhymes.push(lines[index].rhyme)
+    lines.splice(index, 1)
+    this.setState({ lines: lines, rhymes: rhymes })
   }
 
   render() {
@@ -182,6 +188,7 @@ class mainPage extends Component {
             updateRadio={this.updateRadio}
             moveDown={this.moveDown}
             moveUp={this.moveUp}
+            deleteLine={this.deleteLine}
           />
         </div>
       )

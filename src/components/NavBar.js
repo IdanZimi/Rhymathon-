@@ -6,9 +6,9 @@ class NavBar extends Component {
   render() {
     return (
         <div className="rhymeNavbar ">
-          <Link className="link firstLink" to="/"><i class="fas fa-home"></i></Link>
-          <Link className="link restLinks" to="/n/mainpage">Create <i class="far fa-file-alt"></i></Link>
-          <Link className="link restLinks" to="/n/poems">Poems <i class="fas fa-feather-alt"></i></Link>
+          <Link className="link firstLink" to="/"><i className="fas fa-home"></i></Link>
+          <Link className="link restLinks" to="/n/mainpage">Create <i className="far fa-file-alt"></i></Link>
+          <Link className="link restLinks" to="/n/poems">Poems <i className="fas fa-feather-alt"></i></Link>
         </div>
     );
   }

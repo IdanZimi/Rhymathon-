@@ -61,13 +61,18 @@ class Poem extends Component {
         this.props.moveUp()
     }
 
+    deleteLine = () => {
+        this.props.deleteLine()
+    }
+
     render() {
         return (
             <div>
                 <div className="lines">
                     <div className="titleLine">
-                        <button onClick={this.moveUp}><i class="fas fa-angle-up up"></i></button>
-                        <button onClick={this.moveDown}><i class="fas fa-angle-down down"></i></button>
+                        <i className="fas fa-trash-alt neomie" onClick={this.deleteLine}></i>
+                        <button onClick={this.moveUp} className="upArrow"><i className="fas fa-angle-up up"></i></button>
+                        <button onClick={this.moveDown}><i className="fas fa-angle-down down"></i></button>
                         Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
                         <span className="author">
                             Author : <input className="input titleAuthorInout" type="text" value={this.state.user.userName} name="userName" />
@@ -87,9 +92,13 @@ class Poem extends Component {
 
                     </div>
                 </div>
-                <button type="button" onClick={this.addLine}>Add a Line</button>
                 <div className="saveButtonDiv">
-                    <button className="buttonSave button" onClick={this.SaveToData} type="button"><span>Save</span></button>
+                    <button type="button" onClick={this.addLine} className="button">
+                        <span>Add a Line</span>
+                    </button>
+                    <button className="buttonSave button" onClick={this.SaveToData} type="button">
+                        <span>Save</span>
+                    </button>
                 </div>
 
             </div >

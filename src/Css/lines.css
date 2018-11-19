@@ -84,3 +84,22 @@
       opacity: 1;
       right: 0;
   }
+.upArrow{
+    margin-left:4px;
+}
+.button{
+    border-radius: 15px;
+    background-color: grey;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 18px;
+    padding: 1px; 
+    width: 110px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.neomie{
+    cursor: pointer;
+    color:rgb(192, 3, 3); 
+}

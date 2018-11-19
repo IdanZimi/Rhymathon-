@@ -1,11 +1,26 @@
 .loginInput{
-    background-color: transparent;
+    background-color: #212529;
     border-color:grey;
-    
+    COLOR:GREY;
+    padding:2px;
+    border-radius: 8px;
+    position: absolute;
+    font-size:30px;
+    left: 37%;
+    top:44%;
 }
 .loginButton{
+    position: absolute;
+    left: 43%;
+    
+    
 
 }
 .registerLink{
-
+    position: absolute;
+    left: 46.5%;
+    top:64%;
+    text-decoration:underline white;
+    text-decoration-line: underline;
+    text-decoration-color:white
 }

@@ -1,16 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Chewy|Leckerli+One');
+@import url('https://fonts.googleapis.com/css?family=Chewy|Pacifico');
 body {
   background-color: #ecf0f1
 }
 #my{
-  font-family: 'Chewy', cursive;
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
   font-size: 120px; 
   text-align: center; 
   margin-top: 100px; 
   /* color: rgb(207, 207, 184); */
-  color: rgb(252, 204, 211);
-  -webkit-text-stroke-width: 2px;
-   -webkit-text-stroke-color: black;
+  color: rgba(252, 204, 211, 0.842);
+  /* -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: black; */
 }
 .back {
   position: absolute;
@@ -34,12 +35,13 @@ body {
   transition: all 0.5s;
   cursor: pointer;
   margin: 0 auto ;
-  margin-top: 150px;  
+  margin-top: 170px;  
   
 }
 .enterSpan{
   color: white;
-
+  
+  
 }
 
 .button span {
@@ -57,15 +59,15 @@ a{
   color:white; 
 }
 a:link {
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:visited {
-  text-decoration: none;
+  /* text-decoration: none; */
 }
 
 a:hover {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: white ; 
 }
 

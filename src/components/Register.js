@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../Css/App.css'
 import axios from 'axios';
+import '../Css/register.css'
+
 class Landing extends Component {
 
     constructor() {
@@ -37,11 +39,11 @@ class Landing extends Component {
     render() {
         return (
             <div className="back">
-                <h4>Register</h4>
-                <input type='text' placeholder='Username ' name='username' value={this.state.username} onChange={this.updateState} />
-                <input type='text' placeholder='First Name ' name='firstname' value={this.state.firstname} onChange={this.updateState} />
-                <input type='text' placeholder='Last Name ' name='lastname' value={this.state.lastname} onChange={this.updateState} />
-                <button type='button' onClick={this.addUser}>Register</button>
+                <h4 className="registerTitle">Register:</h4>
+                <input type='text' placeholder='Username ' className="userInput" name='username' value={this.state.username} onChange={this.updateState} />
+                <input type='text' placeholder='First Name ' className="nameInput" name='firstname' value={this.state.firstname} onChange={this.updateState} />
+                <input type='text' placeholder='Last Name ' className="lastnameInput" name='lastname' value={this.state.lastname} onChange={this.updateState} />
+                <button type='button' className="btn bttn btn-secondary btn-bg btn-block button regButton" onClick={this.addUser}><span>Register</span></button>
             </div>
         );
     }

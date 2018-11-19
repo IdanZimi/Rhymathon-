@@ -6,6 +6,7 @@ import mainPage from './components/mainPage';
 import PoemCollection from './components/PoemCollection';
 import NavBar from './components/NavBar'
 import Register from './components/Register'
+import ProfilePage from './components/profilePage';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
             <Route path="/n/mainPage" exact component={mainPage}/>
             <Route path="/n/poems" exact component={PoemCollection}/>
             <Route path="/register" exact component={Register}/>
+            <Route path="/n/profile-page" component={ProfilePage} />
           </div>
         </div>
       </Router>

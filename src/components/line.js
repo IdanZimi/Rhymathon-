@@ -12,11 +12,11 @@ class Line extends Component {
         this.props.updateLines(id, value)
     }
     updateRadio = (e) => {
-        let value= e.target.value
         let id = this.props.line.id
-        this.props.updateRadio(value, id)
+        this.props.updateRadio( id)
 
     }
+
 
     render() {
         return (

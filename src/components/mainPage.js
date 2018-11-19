@@ -13,14 +13,50 @@ class mainPage extends Component {
       rhymes: [],
       word: '',
       saved: false,
-      numLines: Number
+      numLines: Number,
+      index: Number
     }
   }
 
-  updateRadio=(value , id )=>{
-    console.log(value)
-    console.log(this.state.lines)   
+  updateRadio = (id) => {
+    for (let i = 0; i < this.state.lines.length; i++) {
+      if (id === this.state.lines[i].id) {
+        this.setState({ index: i })
+      }
+    }
   }
+  moveDown = () => {
+    let lines = [...this.state.lines]
+    let index1 = this.state.index
+    let index2 = index1 + 1
+    if(index1 === this.state.lines.length-1){
+      return alert('You are trying to move down the last')
+    }
+    let temp = { ...lines[index2] }
+    lines[index2] = { ...lines[index1] }
+    lines[index1] = temp
+    this.setState({ lines: lines, index:index2 })
+    console.log(index1)
+  }
+  moveUp = () => {
+    let lines = [...this.state.lines]
+    let index1 = this.state.index
+    let index2 = index1 - 1
+    if(index1 === 0){
+      return alert('You are trying to move up the first')
+    }
+    let temp = { ...lines[index2] }
+    lines[index2] = { ...lines[index1] }
+    lines[index1] = temp
+    this.setState({ lines: lines, index:index2 })
+    console.log(index1)
+  }
+
+  // function swap(theArray, index1, index2) {
+  //   var temp = theArray[index2];
+  //   theArray[index2] = theArray[index1];
+  //   theArray[index1] = temp;
+  // }
 
   updateLines = (id, value) => {
     let lines = this.state.lines.map((line) => {
@@ -91,26 +127,26 @@ class mainPage extends Component {
     this.addPoem()
   }
 
-  addLine=()=>{
-    if(this.state.rhymes[0]===undefined){
+  addLine = () => {
+    if (this.state.rhymes[0] === undefined) {
       return alert('Sorry, you can only have 10 lines.')
     }
     let lines = [...this.state.lines]
     let rhymes = [...this.state.rhymes]
-    let newLine = {text:'', rhyme:rhymes[0], id:lines[lines.length-1].id++}
+    let newLine = { text: '', rhyme: rhymes[0], id: lines[lines.length - 1].id++ }
     lines.push(newLine)
-    rhymes.splice(0,1)
-    this.setState({lines:lines, rhymes:rhymes})
+    rhymes.splice(0, 1)
+    this.setState({ lines: lines, rhymes: rhymes })
   }
 
-  removeLine=(id)=>{
+  removeLine = (id) => {
     let lines = [...this.state.lines]
     let rhymes = [...this.state.rhymes]
-    lines.map((line)=>{
-      if(line.id === id){
+    lines.map((line) => {
+      if (line.id === id) {
         let index = line.indexOf
         rhymes.push(line.rhyme)
-        lines.splice(index,1)
+        lines.splice(index, 1)
       }
     })
   }
@@ -149,6 +185,8 @@ class mainPage extends Component {
             saved={this.state.saved}
             addLine={this.addLine}
             updateRadio={this.updateRadio}
+            moveDown={this.moveDown}
+            moveUp={this.moveUp}
           />
         </div>
       )

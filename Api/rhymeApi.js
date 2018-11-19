@@ -1,5 +1,6 @@
 const express = require('express');
 let Rhyme = require('../Models/Rhyme');
+let User = require('../Models/User');
 const nodemailer = require('nodemailer');
 const router = express.Router();
 
@@ -11,7 +12,10 @@ router.post('/', function (req, res) {
     let rhyme = new Rhyme({ wordSearched: word, title: title, userName: userName, lyrics: lines })
     rhyme.save(function (error, rhyme) {
         if (error) return res.status(500).send(error)
-        else { res.send(rhyme) }
+        else {
+            User.update({userName:userName},{$push:{poems:rhyme._idnnn}})
+            res.send(rhyme)
+        }
     })
 })
 router.get('/', function (req, res) {

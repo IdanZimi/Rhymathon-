@@ -32,10 +32,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="back">
+      <div>
         <input type='text' className="loginInput" placeholder='Username here' name='username' value={this.state.username} onChange={this.updateState} />
-        <button type='button' className="loginButton button" onClick={this.getUser}><span className='enterSpan'>Login</span></button>
-        <Link to="/register" className="registerLink">Register</Link>
+        <button type='button' className="loginButton btn bttn btn-secondary btn-bg btn-block button" onClick={this.getUser}><span className='enterSpan'>Login</span></button><br/>
+        <Link to="/register" className="registerLink"> Register</Link>
       </div>
     );
   }

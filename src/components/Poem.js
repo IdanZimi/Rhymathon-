@@ -5,7 +5,7 @@ import Line from './line'
 
 
 class Poem extends Component {
-    constructor(props) {
+    constructor() {
         super()
         this.state = {
             title: "",
@@ -14,9 +14,9 @@ class Poem extends Component {
         }
     }
 
-    updateRadio = (value , id ) => {
-        this.props.updateRadio(value , id)
-        
+    updateRadio = (id) => {
+        this.props.updateRadio(id)
+
     }
 
     SaveToData = () => {
@@ -41,9 +41,16 @@ class Poem extends Component {
         this.props.updateLines(id, value)
     }
 
-    addLine=()=>{
+    addLine = () => {
         this.props.addLine()
     }
+    moveDown = () => {
+        this.props.moveDown()
+    }
+    moveUp = () => {
+        this.props.moveUp()
+    }
+
 
 
     render() {
@@ -51,8 +58,8 @@ class Poem extends Component {
             <div>
                 <div className="lines">
                     <div className="titleLine">
-                        <button><i class="fas fa-angle-up up"></i></button>
-                        <button><i class="fas fa-angle-down down"></i></button>
+                        <button onClick={this.moveUp}><i class="fas fa-angle-up up"></i></button>
+                        <button onClick={this.moveDown}><i class="fas fa-angle-down down"></i></button>
                         Title : <input className="input titleAuthorInout" type="text" value={this.state.title} name="title" onChange={this.updateText} />
                         <span className="author">
                             Author : <input className="input titleAuthorInout" type="text" value={this.state.userName} name="userName" onChange={this.updateText} />
@@ -67,6 +74,7 @@ class Poem extends Component {
                                 updateLines={this.updateLines}
                                 // radio={this.state.radio}
                                 updateRadio={this.props.updateRadio}
+
                             />
                         })}
 

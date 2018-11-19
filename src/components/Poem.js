@@ -8,22 +8,22 @@ class Poem extends Component {
     constructor() {
         super()
         this.state = {
-            user:"",
+            user: "",
             title: ""
 
         }
     }
     componentDidMount() {
         let user = JSON.parse(localStorage.getItem("user") || "[]")
-        this.setState({user:user})
+        this.setState({ user: user })
     }
 
     updateRadio = (value, id) => {
         this.props.updateRadio(value, id)
-
+    }
     updateRadio = (id) => {
         this.props.updateRadio(id)
-
+    }
 
     SaveToData = () => {
         axios.post('http://localhost:4000/rhymeData ', {
@@ -35,9 +35,9 @@ class Poem extends Component {
         }).then((res) => {
             console.log(res.data);
             this.props.removePoem()
-            let user = {...this.state.user}
+            let user = { ...this.state.user }
             user.poems.push(res.data)
-            this.setState({user:user})
+            this.setState({ user: user })
             localStorage.setItem("user", JSON.stringify(this.state.user))
             alert('Your poem has been saved')
         })
@@ -61,8 +61,6 @@ class Poem extends Component {
         this.props.moveUp()
     }
 
-
-
     render() {
         return (
             <div>
@@ -82,7 +80,6 @@ class Poem extends Component {
                                 key={line.id}
                                 line={line}
                                 updateLines={this.updateLines}
-                                // radio={this.state.radio}
                                 updateRadio={this.props.updateRadio}
 
                             />

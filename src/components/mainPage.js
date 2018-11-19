@@ -14,7 +14,8 @@ class mainPage extends Component {
       word: '',
       saved: false,
       numLines: Number,
-      index: Number
+      index: Number,
+      reservedID: 100
     }
   }
 
@@ -51,12 +52,6 @@ class mainPage extends Component {
     this.setState({ lines: lines, index:index2 })
     console.log(index1)
   }
-
-  // function swap(theArray, index1, index2) {
-  //   var temp = theArray[index2];
-  //   theArray[index2] = theArray[index1];
-  //   theArray[index1] = temp;
-  // }
 
   updateLines = (id, value) => {
     let lines = this.state.lines.map((line) => {
@@ -133,10 +128,10 @@ class mainPage extends Component {
     }
     let lines = [...this.state.lines]
     let rhymes = [...this.state.rhymes]
-    let newLine = { text: '', rhyme: rhymes[0], id: lines[lines.length - 1].id++ }
+    let newLine = { text: '', rhyme: rhymes[0], id: this.state.reservedID++ }
     lines.push(newLine)
     rhymes.splice(0, 1)
-    this.setState({ lines: lines, rhymes: rhymes })
+    this.setState({ lines: lines, rhymes: rhymes, reservedID:this.state.reservedID++ })
   }
 
   removeLine = (id) => {

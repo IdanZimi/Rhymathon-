@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import '../Css/App.css'
 import axios from 'axios';
@@ -13,7 +13,7 @@ class Landing extends Component {
             username: '',
             firstname: '',
             lastname: '',
-            image:''
+            image: ''
         }
     }
 
@@ -41,14 +41,17 @@ class Landing extends Component {
 
     render() {
         return (
-            <div className="back">
-                <h4 className="registerTitle">Register:</h4>
-                <Link to="/"><i class="fas fa-arrow-left amiti"></i></Link>
-                <input type='text' placeholder='Username ' className="userInput" name='username' value={this.state.username} onChange={this.updateState} />
-                <input type='text' placeholder='First Name ' className="nameInput" name='firstname' value={this.state.firstname} onChange={this.updateState} />
-                <input type='text' placeholder='Last Name ' className="lastnameInput" name='lastname' value={this.state.lastname} onChange={this.updateState} />
-                <input type='text' placeholder='Image URL' className="imageInput" name='image' value={this.state.image} onChange={this.updateState} />
-                <button type='button' className="btn bttn btn-secondary btn-bg btn-block button regButton" onClick={this.addUser}><span>Register</span></button>
+
+            <div className="outterPop back">
+                <div className="pop-up">
+                <h4 className="registerTitle">Register</h4>
+                    <Link to="/"><i class="fas fa-arrow-left amiti"></i></Link>
+                    <input type='text' placeholder='Username ' className="userInput" name='username' value={this.state.username} onChange={this.updateState} />
+                    <input type='text' placeholder='First Name ' className="nameInput" name='firstname' value={this.state.firstname} onChange={this.updateState} />
+                    <input type='text' placeholder='Last Name ' className="lastnameInput" name='lastname' value={this.state.lastname} onChange={this.updateState} />
+                    <input type='text' placeholder='Image URL' className="imageInput" name='image' value={this.state.image} onChange={this.updateState} />
+                    <button type='button' className="btn bttn btn-secondary btn-bg btn-block button regButton" onClick={this.addUser}><span>Register</span></button>
+                </div>
             </div>
         );
     }

@@ -26,7 +26,7 @@ class Poem extends Component {
     }
 
     SaveToData = () => {
-        axios.post('http://localhost:4000/rhymeData ', {
+        axios.post('/rhymeData ', {
             word: this.props.word,
             userName: this.state.user.userName,
             title: this.state.title,

@@ -12,7 +12,7 @@ class PoemCollection extends Component {
         }
     }
     componentDidMount() {
-        axios.get('http://localhost:4000/rhymeData').then((result) => {
+        axios.get('/rhymeData').then((result) => {
             let data = result.data;
             this.setState({ poems: data })
             

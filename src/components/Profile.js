@@ -38,7 +38,7 @@ class ProfilePage extends Component {
     editPhoto = async () => {
         console.log(this.state.newUrl)
         console.log(this.state.user._id)
-        await axios.post('http://localhost:4000/userData/newImage', { newUrl: this.state.newUrl, userId: this.state.user._id })
+        await axios.post('/userData/newImage', { newUrl: this.state.newUrl, userId: this.state.user._id })
         let user = { ...this.state.user }
         user.imageUrl = this.state.newUrl
         this.setState({ user: user })
@@ -63,7 +63,7 @@ class ProfilePage extends Component {
                     {this.state.popup ?
                         <div>
                             <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
-                            <button type="button" onClick={this.editPhoto} className="button">Send</button>
+                            <button type="button" onClick={this.editPhoto} className="buttoni">Send</button>
                         </div>
                         : null}
                 </div>
@@ -80,7 +80,7 @@ class ProfilePage extends Component {
                     {this.state.popup ?
                         <div>
                             <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
-                            <button type="button" onClick={this.editPhoto} className="button">Send</button>
+                            <button type="button" onClick={this.editPhoto} className="buttoni">Send</button>
                         </div>
                         : null}
                     <i className="fas fa-angle-left arrow left" onClick={this.previousPoem}></i>

@@ -18,7 +18,7 @@ class SinglePoem extends Component {
     }
 
     deletePoem = () => {
-        axios.get('http://localhost:4000/rhymeData/deletePoem/' + this.props.poem._id)
+        axios.get('/rhymeData/deletePoem/' + this.props.poem._id)
         this.props.deletePoemState(this.props.poem._id, this.props.poem.userName)
     }
     updateText = (event) => {
@@ -42,7 +42,7 @@ class SinglePoem extends Component {
     sendMail = async () => {
         let content = this.props.poem.lyrics.map(b => { return b.text + " " + b.rhyme });
         try {
-            await axios.get('http://localhost:4000/rhymeData/send/' + this.state.emailTo + '/' + content)
+            await axios.get('/rhymeData/send/' + this.state.emailTo + '/' + content)
             this.popUp()
             alert('mail sent.')
         }

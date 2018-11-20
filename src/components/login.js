@@ -19,7 +19,7 @@ class Login extends Component {
     }
 
     getUser=async()=>{
-        let user = await axios.get('http://localhost:4000/userData/'+this.state.username)
+        let user = await axios.get('/userData/'+this.state.username)
         if (user.data[0] == undefined) {
             alert("User not found.")
         }

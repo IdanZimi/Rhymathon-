@@ -33,7 +33,7 @@ class Landing extends Component {
         }
         else {
             let newUser = { username: this.state.username, firstname: this.state.firstname, lastname: this.state.lastname, imageUrl: this.state.image }
-            let user = await axios.post('http://localhost:4000/userData', newUser)
+            let user = await axios.post('/userData', newUser)
             localStorage.setItem("user", JSON.stringify(user.data))
             window.location.href = "/n/mainPage";
         }

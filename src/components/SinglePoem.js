@@ -36,7 +36,7 @@ class SinglePoem extends Component {
             <video className="video" controls autoplay name="media">
                 <source src={`http://api.voicerss.org/?key=b17041a7246e4dea8c714eb7da05a48b&hl=en-us&src=${content}`} type='audio/mpeg' />
             </video>
-            {/* <iframe src={`http://api.voicerss.org/?key=b17041a7246e4dea8c714eb7da05a48b&hl=en-us&src=${content}`} allow="autoplay" className='video'/> */}
+            {/* <iframe src={`http://api.voicerss.org/?key=b17041a7246e4dea8c714eb7da05a48b&hl=en-us&src=${content}`} allow="autoplay" className='iframe'/> */}
             </div>)
     }
     sendMail = async () => {
@@ -81,9 +81,9 @@ class SinglePoem extends Component {
                 </div>
                 {this.state.popup ?
                     <div className="outterPop">
-                        <div className="pop-up">
+                        <div className="pop-up1">
                             <p className="popMail">Send Email to: </p><input type="text" className="emailTo" name="emailTo" value={this.state.emailTo} onChange={this.updateText} />
-                            <button onClick={this.popUp} className="closePop"><i class="fas fa-times"></i></button>
+                            <button onClick={this.popUp} className="closePop"><i class="fas fa-times x"></i></button>
                             <button className="sendMail" onClick={this.sendMail}>Send!</button>
                         </div>
                     </div>

@@ -54,6 +54,7 @@
       margin:0 auto;
       text-align: center;
       margin-top:5%;
+      
 }
 .wordInput{
       margin : 0 auto ;
@@ -61,6 +62,7 @@
       color: black;
       font-weight: 700; 
       font-family: 'Allerta Stencil', sans-serif;
+      border: solid rgb(112, 112, 112) 1px
 
   }
   .mainPageHeader{
@@ -80,4 +82,5 @@
       font-weight: 700; 
       font-family: 'Allerta Stencil', sans-serif;
       width: 250px; 
+      border: solid rgb(112, 112, 112) 1px
 }

@@ -36,17 +36,24 @@
     margin: auto;
     background-color: rgba(0,0,0, 0.5);
   }
+  
   .pop-up{
-    width:420px;
-    height: 260px;
-    opacity:0.9;
-    background-color: #acddd5;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin:0 auto;
+    background: white;
+    width: 350px;
+    height: 270px; 
+    background-color: rgba(0,0,0, 0.6);;
     color:white;
-    border-radius: 1%;
-    position: fixed;
-    top:35%;
-    left:35%;
+    font-family: Quicksand;
+    font-weight: 600; 
+
   }
+  
   .emailTo{ 
     pointer-events: all;
     position: absolute;
@@ -66,9 +73,11 @@
   }
   
   .popMail{
-    position: absolute;
-    left:4%;
-    top:10%;
+    /* position: absolute; */
+    text-align: center;
+    left:8%;
+    top:18%;
+    margin-top: 8%;
     font-size: 40px;
   }
   .sendMail{

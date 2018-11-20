@@ -20,7 +20,6 @@ class Login extends Component {
 
     getUser=async()=>{
         let user = await axios.get('http://localhost:4000/userData/'+this.state.username)
-        console.log(user)
         if (user.data[0] == undefined) {
             alert("User not found.")
         }
@@ -34,7 +33,7 @@ class Login extends Component {
     return (
       <div>
         <input type='text' className="loginInput" placeholder='Username here' name='username' value={this.state.username} onChange={this.updateState} />
-        <button type='button' className="loginButton btn bttn btn-secondary btn-bg btn-block button" onClick={this.getUser}><span className='enterSpan'>Login</span></button><br/>
+        <button type='button' className="loginButton btn bttn btn-secondary btn-bg btn-block button" onClick={this.getUser}><span className='enterSpan'>Login </span></button><br/>
         <Link to="/register" className="registerLink"> Register</Link>
       </div>
     );

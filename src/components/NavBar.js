@@ -9,8 +9,8 @@ class NavBar extends Component {
 
   render() {
     return (
-        <div className="rhymeNavbar ">
-          <Link className="link firstLink" to="/n/profile-page"><i className="fas fa-home"></i></Link>
+        <div className="rhymeNavbar">
+          <Link className="link firstLink" to="/n/profile-page"><i class="fas fa-user-alt"></i>Profile</Link>
           <Link className="link restLinks" to="/n/mainpage">Create <i className="far fa-file-alt"></i></Link>
           <Link className="link restLinks" to="/n/poems">Poems <i className="fas fa-feather-alt"></i></Link>
           <Link className="logoutLink " to="/" onClick={this.clearLocalDB}>Logout <i class="fas fa-sign-out-alt"></i></Link>

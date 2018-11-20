@@ -7,7 +7,9 @@ body {
   font-weight: 400;
   font-size: 120px; 
   text-align: center; 
-  margin-top: 100px; 
+  position: absolute;
+  top:9%;
+  left:15%;
   /* color: rgb(207, 207, 184); */
   color: rgba(252, 204, 211, 0.842);
   /* -webkit-text-stroke-width: 2px;
@@ -35,7 +37,8 @@ body {
   transition: all 0.5s;
   cursor: pointer;
   margin: 0 auto ;
-  margin-top: 170px;  
+  position: absolute;
+  top:60%;
   
 }
 .enterSpan{

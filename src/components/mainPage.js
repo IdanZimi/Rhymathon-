@@ -149,11 +149,11 @@ class mainPage extends Component {
     }
     rhymes.push(lines[index].rhyme)
     lines.splice(index, 1)
-    this.setState({ lines: lines, rhymes: rhymes })
+    this.setState({ lines: lines, rhymes: rhymes, index:Number })
   }
 
   render() {
-
+            
     if (this.state.lines[0] === undefined || this.state.saved === true) {
       return (
         <div className="mainPage backMainPage">

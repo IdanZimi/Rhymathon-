@@ -12,7 +12,8 @@ class Landing extends Component {
         this.state = {
             username: '',
             firstname: '',
-            lastname: ''
+            lastname: '',
+            image:''
         }
     }
 
@@ -31,9 +32,9 @@ class Landing extends Component {
             alert('Your lastname must be filled in')
         }
         else {
-            let newUser = { username: this.state.username, firstname: this.state.firstname, lastname: this.state.lastname }
+            let newUser = { username: this.state.username, firstname: this.state.firstname, lastname: this.state.lastname, imageUrl: this.state.image }
             let user = await axios.post('http://localhost:4000/userData', newUser)
-            localStorage.setItem("user", JSON.stringify([user]))
+            localStorage.setItem("user", JSON.stringify(user.data))
             window.location.href = "/n/mainPage";
         }
     }
@@ -46,6 +47,7 @@ class Landing extends Component {
                 <input type='text' placeholder='Username ' className="userInput" name='username' value={this.state.username} onChange={this.updateState} />
                 <input type='text' placeholder='First Name ' className="nameInput" name='firstname' value={this.state.firstname} onChange={this.updateState} />
                 <input type='text' placeholder='Last Name ' className="lastnameInput" name='lastname' value={this.state.lastname} onChange={this.updateState} />
+                <input type='text' placeholder='Image URL' className="imageInput" name='image' value={this.state.image} onChange={this.updateState} />
                 <button type='button' className="btn bttn btn-secondary btn-bg btn-block button regButton" onClick={this.addUser}><span>Register</span></button>
             </div>
         );

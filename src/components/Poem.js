@@ -93,11 +93,11 @@ class Poem extends Component {
                     </div>
                 </div>
                 <div className="saveButtonDiv">
-                    <button type="button" onClick={this.addLine} className="button">
-                        <span>Add a Line</span>
-                    </button>
                     <button className="buttonSave button" onClick={this.SaveToData} type="button">
                         <span>Save</span>
+                    </button>
+                    <button type="button" onClick={this.addLine} className="button">
+                        <span>Add a Line</span>
                     </button>
                 </div>
 

@@ -16,12 +16,12 @@ class ProfilePage extends Component {
     }
 
     render() {
-        
+
         if (this.state.user.poems[0] === undefined) {
             return (
                 <div className="profilepage">
-                    <h1>{this.state.user.userName}({this.state.user.firstName} {this.state.user.lastName})</h1>
-                    <h4>Poems</h4>
+                    <h1 className="name">{this.state.user.userName}({this.state.user.firstName} {this.state.user.lastName})</h1>
+                    <p>Poems</p>
                     <p>You haven't written any poems yet.</p>
                 </div>
             )
@@ -29,11 +29,11 @@ class ProfilePage extends Component {
         else {
             return (
                 <div className="profilepage">
-                    <h1>{this.state.user.userName}({this.state.user.firstName} {this.state.user.lastName})</h1>
-                    <h4>Poems</h4>
+                    <h1 className="name">{this.state.user.userName}({this.state.user.firstName} {this.state.user.lastName})</h1>
+                    <p>Poems</p>
                     <p>{this.state.user.poems.map((poem) => {
-                        return <MyPoem poem = {poem} />
-                    })}</p>    
+                        return <MyPoem poem={poem} />
+                    })}</p>
                 </div>
             );
         }

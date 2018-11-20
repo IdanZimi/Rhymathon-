@@ -81,7 +81,7 @@ class SinglePoem extends Component {
                 {this.state.popup ?
                     <div className="outterPop">
                         <div className="pop-up">
-                            <p className="popMail">Send email to: </p><input type="text" className="emailTo" name="emailTo" value={this.state.emailTo} onChange={this.updateText} />
+                            <p className="popMail">Send Email to: </p><input type="text" className="emailTo" name="emailTo" value={this.state.emailTo} onChange={this.updateText} />
                             <button onClick={this.popUp} className="closePop">X</button>
                             <button className="sendMail" onClick={this.sendMail}>Send!</button>
                         </div>

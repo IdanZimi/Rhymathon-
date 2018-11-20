@@ -17,7 +17,8 @@ router.post('/', function (req, res) {
     let username = req.body.username
     let firstname = req.body.firstname
     let lastname = req.body.lastname
-    let NewUser = new User({ firstName: firstname, lastName: lastname, userName: username })
+    let imageUrl = req.body.imageUrl
+    let NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl:imageUrl })
     NewUser.save(function (err, data) {
       if (err) {
         res.status(400).send(err);

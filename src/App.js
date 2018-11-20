@@ -6,7 +6,7 @@ import mainPage from './components/mainPage';
 import PoemCollection from './components/PoemCollection';
 import NavBar from './components/NavBar'
 import Register from './components/Register'
-import ProfilePage from './components/ProfilePage';
+import ProfilePage from './components/ProfilePage'
 
 class App extends Component {
 

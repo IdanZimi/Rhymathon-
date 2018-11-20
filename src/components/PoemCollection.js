@@ -32,8 +32,8 @@ class PoemCollection extends Component {
         return (
             <div className="backPoemCollections">
                 <div className="searchArea">
-                    <input className="searchInput" type="text" value={this.state.search} name="search" placeholder="word used to bulid song" onChange={this.updateSearch} />
-                    <i class="fas fa-search"></i>
+                    <input className="searchInput" type="text" value={this.state.search} name="search" placeholder="Search..." onChange={this.updateSearch} />
+                    <i class="fas fa-search whiteSearch"></i>
                 </div>
 
                 {this.state.poems

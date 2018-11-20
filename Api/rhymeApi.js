@@ -51,13 +51,13 @@ router.get('/send/:emailTo/:content', function (req, res) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'mamitut3@gmail.com',
-            pass: '15123123'
+            user: 'myfreakypoem@gmail.com',
+            pass: 'rhymathon123'
         }
     });
 
     var mailOptions = {
-        from: 'mamitut3@gmail.com',
+        from: 'myfreakypoem@gmail.com',
         to: req.params.emailTo,
         subject: 'You got a new Freaky Poem!',
         text: req.params.content

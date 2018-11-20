@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-.lastnameInput, .nameInput, .userInput{
+.lastnameInput, .nameInput, .userInput, .imageInput{
     background-color: #212529;
     border-color:grey;
     COLOR:GREY;
@@ -26,11 +26,13 @@
     color: rgba(252, 204, 211, 0.582);
 
 }
+.imageInput{
+    top:60%;
+}
 .regButton{
-    position: absolute;
-    margin-top:500px;
     width : 10%;
-    left:42.5%;   
+    margin-left:42.5%;   
+    margin-top:6%;
 }
 .amiti{
     color: rgba(255, 255, 255, 0.692) ; 

@@ -2,8 +2,11 @@
     background-color: #151019;
     display:block;
     padding:1%;
-    position: sticky;
+    position: fixed;
+    z-index: 1;
     top: 0;
+    width: 100%; 
+    height: 7%;
 }
 .firstLink{
     margin-left:1%
@@ -25,4 +28,9 @@
     padding-left:1%;
     padding-top:1%;
     padding-bottom:1%;
+}
+.dropdown{
+    border:none ; 
+    color:white; 
+    background-color: black ; 
 }

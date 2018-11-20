@@ -19,9 +19,15 @@ class PoemCollection extends Component {
         });
     }
 
-    deletePoemState = (id) => {
+    deletePoemState = (id, username) => {
         let poemsArr = this.state.poems.filter((poem) => poem._id !== id)
         this.setState({ poems: poemsArr })
+        let user = JSON.parse(localStorage.getItem("user") || "[]")
+        if(user.userName === username){
+            let userPoemsArr = user.poems.filter((poem) => poem._id !== id)
+            user.poems = userPoemsArr
+            localStorage.setItem("user", JSON.stringify(user))
+        }
     }
     updateSearch = (e) => {
         this.setState({ [e.target.name]: e.target.value })

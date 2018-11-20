@@ -8,8 +8,12 @@ class ProfilePage extends Component {
         this.state = {
             user: {},
             index: 0,
-            newUrl:''
+            newUrl: '',
+            popup: false
         }
+    }
+    popup = () => {
+        this.setState({ popup: !this.state.popup })
     }
 
     updateText = (e) => {
@@ -31,13 +35,13 @@ class ProfilePage extends Component {
         this.setState({ index: newIndex })
     }
 
-    editPhoto = async () =>{
+    editPhoto = async () => {
         console.log(this.state.newUrl)
         console.log(this.state.user._id)
-        await axios.post('http://localhost:4000/userData/newImage' , {newUrl:this.state.newUrl, userId:this.state.user._id})
-        let user = {...this.state.user}
+        await axios.post('http://localhost:4000/userData/newImage', { newUrl: this.state.newUrl, userId: this.state.user._id })
+        let user = { ...this.state.user }
         user.imageUrl = this.state.newUrl
-        this.setState({user:user})
+        this.setState({ user: user })
         localStorage.setItem("user", JSON.stringify(this.state.user))
     }
 
@@ -47,17 +51,21 @@ class ProfilePage extends Component {
     }
 
     render() {
-
+        
         if (this.state.user.poems[0] === undefined) {
             return (
                 <div className="profilepage">
-                    <img src={this.state.user.imageUrl} className="name image" alt="Profile Picture" />
-                    <i class="far fa-edit edit"></i>
-                    <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
-                    <button type="button" onClick={this.editPhoto}>Send</button>
+                    <img src={this.state.user.imageUrl} className="name image" alt="Profile Picture" />                   
+                    <i class="far fa-edit edit" onClick={this.popup}></i>
                     <h3 className="user">{this.state.user.userName}( {this.state.user.firstName} {this.state.user.lastName} )</h3>
                     <h2>Poems:</h2>
                     <p>You haven't written any poems yet.</p>
+                    {this.state.popup ?
+                        <div>
+                            <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
+                            <button type="button" onClick={this.editPhoto} className="button">Send</button>
+                        </div>
+                        : null}
                 </div>
             )
         }
@@ -65,15 +73,18 @@ class ProfilePage extends Component {
             return (
                 <div className="profilepage">
                     <img src={this.state.user.imageUrl} className="name image" alt="Profile Picture" />
-                    <i class="far fa-edit edit"></i>
-                    <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
-                    <button type="button" onClick={this.editPhoto}>Send</button>                    
                     <h3 className="user">{this.state.user.userName}( {this.state.user.firstName} {this.state.user.lastName} )</h3>
+                    <i class="far fa-edit edit" onClick={this.popup}></i>
                     <h2>Poems:</h2>
                     <MyPoem poem={this.state.user.poems[this.state.index]} key={this.state.user.poems[this.state.index]._id} />
-
-                    <i className="fas fa-angle-left arrow" onClick={this.previousPoem}></i>
-                    <i className="fas fa-angle-right arrow" onClick={this.nextPoem}></i>
+                    {this.state.popup ?
+                        <div>
+                            <input className="newUrl" type="text" value={this.state.newUrl} name="newUrl" placeholder="New Image URL..." onChange={this.updateText} />
+                            <button type="button" onClick={this.editPhoto} className="button">Send</button>
+                        </div>
+                        : null}
+                    <i className="fas fa-angle-left arrow left" onClick={this.previousPoem}></i>
+                    <i className="fas fa-angle-right arrow right" onClick={this.nextPoem}></i>
                 </div>
             );
         }

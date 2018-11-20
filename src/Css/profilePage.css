@@ -29,5 +29,38 @@
     margin:1%
 }
 .arrow{
-    font-size:30px
+    font-size:30px;
+    position: absolute;
+    top:35%;
+    cursor: pointer;
+    opacity:0.8
+
+}
+input{
+    background-color:transparent;
+    border:none;
+}
+.button {    
+    border-radius: 15px;
+    background-color: grey;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    padding: 1px; 
+    width: 100px;
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+.left{
+    left:40%;
+}
+.right{
+    left:59%;
+}
+.edit{
+    cursor: pointer;
+    position: absolute;
+    top:27.5%;
+    left:57%;
 }

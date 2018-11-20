@@ -18,7 +18,15 @@ router.post('/', function (req, res) {
     let firstname = req.body.firstname
     let lastname = req.body.lastname
     let imageUrl = req.body.imageUrl
-    let NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl: imageUrl })
+    let NewUser;
+    let backupUrl='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKbiAGavgrRG9X_31t_b_K5OUY-AKT--xBDiTkoYCso-iyKMIEXg'
+    console.log(imageUrl)
+    if (imageUrl === '') {
+        NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl:backupUrl })
+    }
+    else {
+        NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl: imageUrl })
+    }
     NewUser.save(function (err, data) {
         if (err) {
             res.status(400).send(err);
@@ -29,7 +37,6 @@ router.post('/', function (req, res) {
 });
 
 router.post('/newImage', function (req, res) {
-    console.log(req.body)
     let userId = req.body.userId
     let newUrl = req.body.newUrl
     User.findByIdAndUpdate(userId, { '$set': { imageUrl: newUrl } }).exec(function (err, data) {

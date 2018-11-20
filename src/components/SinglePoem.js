@@ -19,7 +19,7 @@ class SinglePoem extends Component {
 
     deletePoem = () => {
         axios.get('http://localhost:4000/rhymeData/deletePoem/' + this.props.poem._id)
-        this.props.deletePoemState(this.props.poem._id)
+        this.props.deletePoemState(this.props.poem._id, this.props.poem.userName)
     }
     updateText = (event) => {
         this.setState({

@@ -3,7 +3,7 @@ let User = require('../Models/User');
 const router = express.Router();
 
 router.get('/:username', function (req, res) {
-    User.find({userName:req.params.username}).populate('poems').exec(function (err, data) {
+    User.find({ userName: req.params.username }).populate('poems').exec(function (err, data) {
         if (err) {
             console.error(err)
             res.status(500).send(err)
@@ -18,14 +18,28 @@ router.post('/', function (req, res) {
     let firstname = req.body.firstname
     let lastname = req.body.lastname
     let imageUrl = req.body.imageUrl
-    let NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl:imageUrl })
+    let NewUser = new User({ firstName: firstname, lastName: lastname, userName: username, imageUrl: imageUrl })
     NewUser.save(function (err, data) {
-      if (err) {
-        res.status(400).send(err);
-      } else {
-        res.send(data);
-      }
+        if (err) {
+            res.status(400).send(err);
+        } else {
+            res.send(data);
+        }
     })
-  });
+});
 
-  module.exports = router;
+router.post('/newImage', function (req, res) {
+    console.log(req.body)
+    let userId = req.body.userId
+    let newUrl = req.body.newUrl
+    User.findByIdAndUpdate(userId, { '$set': { imageUrl: newUrl } }).exec(function (err, data) {
+        if (err) {
+            console.error(err)
+            res.status(500).send(err)
+        } else {
+            res.send(data)
+        }
+    })
+})
+
+module.exports = router;

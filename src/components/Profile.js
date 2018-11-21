@@ -43,6 +43,7 @@ class ProfilePage extends Component {
         user.imageUrl = this.state.newUrl
         this.setState({ user: user })
         localStorage.setItem("user", JSON.stringify(this.state.user))
+        this.popup()
     }
 
     componentWillMount() {

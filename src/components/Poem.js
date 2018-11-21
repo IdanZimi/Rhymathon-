@@ -96,7 +96,7 @@ class Poem extends Component {
                     <button className="buttonSave button" onClick={this.SaveToData} type="button">
                         <span>Save</span>
                     </button>
-                    <button type="button" onClick={this.addLine} className="button">
+                    <button type="button" onClick={this.addLine} className="button left">
                         <span>Add a Line</span>
                     </button>
                 </div>

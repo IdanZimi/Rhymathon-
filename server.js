@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const bodyParser = require("body-parser")
 const mongoose = require ("mongoose")
+const path = require('path')
 
 mongoose.connect(process.env.CONNECTION_STRING||"mongodb://rhymathon:Aa123456@ds131983.mlab.com:31983/rhymathon")
 
@@ -27,5 +28,10 @@ app.use("/rhymeData", rhymeApi)
 
 let userApi = require("./Api/userApi") 
 app.use("/userData", userApi)
+
+app.get("*" , function(req,res){
+    res.sendFile(path.join(__dirname, '/build/index.html'))
+})
+
 app.listen(process.env.PORT || '4000');
 
